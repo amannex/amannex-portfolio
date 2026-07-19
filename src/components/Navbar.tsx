@@ -33,9 +33,9 @@ const Navbar = () => {
                 <Link to="/" className="nav-logo" onClick={closeMenu}>
                     Aman<span style={{ color: 'var(--accent-color)' }}>neX</span>
                 </Link>
-                
-                <button 
-                    className="mobile-toggle" 
+
+                <button
+                    className="mobile-toggle"
                     aria-label="Toggle Navigation"
                     onClick={toggleMobileMenu}
                 >
@@ -50,7 +50,7 @@ const Navbar = () => {
                     <li><NavLink to="/blogs" className="nav-link" onClick={closeMenu}>Blogs</NavLink></li>
                     <li className="mobile-only-btn"><Link to="/contact" className="btn btn-primary" onClick={closeMenu}>Let's Talk</Link></li>
                 </ul>
-                
+
                 <div className="nav-actions">
                     <Link to="/contact" className="btn btn-primary nav-btn" onClick={closeMenu}>Let's Talk</Link>
                 </div>
