@@ -171,20 +171,37 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--bg-secondary);
-  color: var(--text-primary);
+  background: #f8fafc;
+  color: #334155;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
-  border: 1px solid var(--border-light);
+  border: 1px solid #e2e8f0;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .shareBtn:hover {
-  background: var(--accent-color);
-  color: #fff;
-  border-color: var(--accent-color);
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.postShareBottom {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.shareTitle {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-right: 0.5rem;
 }
 
 /* Author Box */
@@ -275,14 +292,47 @@
 }
 
 .commentsSection {
-  margin-top: 5rem;
-  border-top: 1px solid var(--border-light);
-  padding-top: 3rem;
+  margin-top: 0;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2.5rem;
 }
 
-.commentsSection h3 {
-  font-size: 1.8rem;
+.commentsSection h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+
+.noComments {
+  padding: 1.5rem;
+  text-align: center;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
   margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.commentTextarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 100px;
+  font-size: 0.95rem;
+}
+.commentTextarea::placeholder {
+  color: #94a3b8;
+}
+.commentTextarea:focus {
+  outline: none;
+  border-color: #94a3b8;
 }
 
 .commentForm {
@@ -290,10 +340,6 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 4rem;
-  background: var(--bg-secondary);
-  padding: 2.5rem;
-  border-radius: 16px;
-  border: 1px solid var(--border-light);
 }
 
 .formRow {
@@ -329,21 +375,22 @@
 }
 
 .submitBtn {
-  align-self: flex-start;
-  padding: 1rem 2.5rem;
+  align-self: flex-end;
+  padding: 0.8rem 1.8rem;
   background: var(--accent-color);
   color: white;
   border: none;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: all var(--transition-fast);
-  margin-top: 1rem;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
 }
 
 .submitBtn:hover {
   transform: translateY(-2px);
-  background: var(--accent-hover);
+  background: #000000;
 }
 
 .commentList {
@@ -410,6 +457,7 @@
 /* Related Posts */
 .relatedPostsSection {
   margin-top: 4rem;
+  margin-bottom: 6rem;
   padding-top: 3rem;
   border-top: 1px solid var(--border-light);
 }
@@ -516,4 +564,81 @@
 
 .relatedReadMore:hover i {
   transform: translateX(4px);
+}
+
+/* FAQs Accordion */
+.faqSection {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.faqSection h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordionItem {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.accordionItem.active {
+  border-color: #0f172a;
+}
+
+.accordionHeader {
+  width: 100%;
+  text-align: left;
+  padding: 1.2rem 1.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+  font-family: inherit;
+}
+
+.accordionHeader:hover {
+  background: #f8fafc;
+}
+
+.accordionIcon {
+  font-size: 0.9rem;
+  color: #64748b;
+  transition: transform 0.3s ease;
+}
+
+.accordionItem.active .accordionIcon {
+  transform: rotate(180deg);
+  color: #0f172a;
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.accordionContent p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
 }
