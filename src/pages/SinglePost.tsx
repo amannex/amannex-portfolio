@@ -43,7 +43,10 @@ const SinglePost = () => {
     const contentRef = useRef<HTMLElement>(null);
     const scrollProgress = useScrollProgress();
     const { text: readingTime } = useReadingTime(rawContentForTime);
-    const { headings, activeId, scrollToHeading } = useTableOfContents({ containerRef: contentRef });
+    const { headings, activeId, scrollToHeading } = useTableOfContents({ 
+        containerRef: contentRef,
+        ignoreSelector: `.${styles.inPostCta}, .${styles.authorBox}, .${styles.commentsSection}`
+    });
 
     return (
         <div className={styles.articleSection}>
