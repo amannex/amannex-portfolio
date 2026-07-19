@@ -166,14 +166,17 @@ module.exports = {
 
                             <div className={styles.authorBox}>
                                 <h2 style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', borderWidth: 0 }}>Author</h2>
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" alt="Aman Saifi" className={styles.authorImg} />
+                                <div className={styles.authorAvatarInitials}>AS</div>
                                 <div className={styles.authorInfo}>
-                                    <div style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '0.5rem' }}>Aman Saifi</div>
-                                    <p>Full-Stack Developer & UI/UX Designer. I write about modern web architecture, AI integrations, and creating beautiful digital experiences. When I'm not coding, you can find me exploring the outdoors or brewing specialty coffee.</p>
+                                    <span className={styles.writtenBy}>WRITTEN BY</span>
+                                    <div className={styles.authorName}>Aman Saifi</div>
+                                    <p>Full-Stack Developer & UI/UX Designer. I write about modern web architecture, AI integrations, and creating beautiful digital experiences.</p>
                                     <div className={styles.authorSocial}>
-                                        <a href="#"><i className="fab fa-github"></i></a>
-                                        <a href="#"><i className="fab fa-linkedin"></i></a>
-                                        <a href="#"><i className="fas fa-globe"></i></a>
+                                        <a href="#" className={styles.socialLink}>
+                                            <svg viewBox="0 0 1200 1227" fill="currentColor" width="13" height="13"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"></path></svg>
+                                        </a>
+                                        <a href="#" className={styles.socialLink}><i className="fab fa-linkedin-in"></i></a>
+                                        <a href="#" className={styles.socialLink}><i className="fab fa-facebook-f"></i></a>
                                     </div>
                                 </div>
                             </div>
