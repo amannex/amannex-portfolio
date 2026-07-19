@@ -28,7 +28,7 @@ const Footer = () => {
                     </div>
                     
                     <div className="footer-links">
-                        <h4>Services</h4>
+                        <h4>What I Do</h4>
                         <ul>
                             <li><Link to="/services" className="interactive-element">Web Development</Link></li>
                             <li><Link to="/services" className="interactive-element">WordPress Solutions</Link></li>

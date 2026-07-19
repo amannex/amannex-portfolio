@@ -45,7 +45,7 @@ const Navbar = () => {
                 <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
                     <li><NavLink to="/" className="nav-link" onClick={closeMenu}>Home</NavLink></li>
                     <li><NavLink to="/about" className="nav-link" onClick={closeMenu}>About</NavLink></li>
-                    <li><NavLink to="/services" className="nav-link" onClick={closeMenu}>Services</NavLink></li>
+                    <li><NavLink to="/services" className="nav-link" onClick={closeMenu}>What I Do</NavLink></li>
                     <li><NavLink to="/portfolio" className="nav-link" onClick={closeMenu}>Portfolio</NavLink></li>
                     <li><NavLink to="/blogs" className="nav-link" onClick={closeMenu}>Blogs</NavLink></li>
                     <li className="mobile-only-btn"><Link to="/contact" className="btn btn-primary" onClick={closeMenu}>Let's Talk</Link></li>

@@ -11,9 +11,12 @@ const Contact = () => {
                 description="Get in touch with Aman Saifi for freelance opportunities, full stack development, and design services."
                 canonicalUrl="https://amannex.me/contact"
             />
-    <header className={`${styles['page-header']} container fade-up`}>
-        <h1 className={`${styles['page-title']}`}>Get in <span className="gradient-text">Touch</span></h1>
-        <p className={`${styles['page-subtitle']}`}>Have a vision for your next digital product? Let's discuss how we can bring it to life with modern technology and elegant design.</p>
+    <header className="page-header">
+        <div className="container fade-up">
+            <span className="hero-badge"><i className="fas fa-envelope" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Contact Me</span>
+            <h1 className="page-title">Get in <span className="gradient-text">Touch</span></h1>
+            <p className="section-subtitle" style={{"marginBottom":"0"}}>Have a vision for your next digital product? Let's discuss how we can bring it to life with modern technology and elegant design.</p>
+        </div>
     </header>
 
     

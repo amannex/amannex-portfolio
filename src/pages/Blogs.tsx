@@ -12,11 +12,11 @@ const Blogs = () => {
                 description="Read the latest articles on web development, UI/UX design, software engineering, and AI from Aman Saifi."
                 canonicalUrl="https://amannex.me/blogs"
             />
-    <header className={`${styles['page-header']}`}>
+    <header className="page-header">
         <div className="container fade-up">
-            <span className={`${styles['hero-badge']}`}><i className="fas fa-pen-nib" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Thoughts & Insights</span>
-            <h1 className={`${styles['page-title']}`}>My <span className="gradient-text">Journal</span></h1>
-            <p className="section-subtitle">Exploring web development, artificial intelligence, UI/UX design, and the digital landscape.</p>
+            <span className="hero-badge"><i className="fas fa-pen-nib" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Thoughts & Insights</span>
+            <h1 className="page-title">My <span className="gradient-text">Journal</span></h1>
+            <p className="section-subtitle" style={{"marginBottom":"1.5rem"}}>Exploring web development, artificial intelligence, UI/UX design, and the digital landscape.</p>
             
             <div className={`${styles['search-container']} interactive-element`}>
                 <input type="text" className={`${styles['search-input']}`} placeholder="Search for articles, topics, or keywords..." />
