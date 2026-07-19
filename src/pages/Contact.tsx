@@ -1,11 +1,16 @@
 import styles from './Contact.module.css';
+import SEO from '../components/SEO';
 
 
 const Contact = () => {
 
     return (
         <>
-            
+            <SEO 
+                title="Contact"
+                description="Get in touch with Aman Saifi for freelance opportunities, full stack development, and design services."
+                canonicalUrl="https://amannex.me/contact"
+            />
     <header className={`${styles['page-header']} container fade-up`}>
         <h1 className={`${styles['page-title']}`}>Get in <span className="gradient-text">Touch</span></h1>
         <p className={`${styles['page-subtitle']}`}>Have a vision for your next digital product? Let's discuss how we can bring it to life with modern technology and elegant design.</p>

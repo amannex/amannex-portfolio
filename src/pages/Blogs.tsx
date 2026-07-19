@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import styles from './Blogs.module.css';
 
 
@@ -6,7 +7,11 @@ const Blogs = () => {
 
     return (
         <>
-            
+            <SEO 
+                title="Blogs"
+                description="Read the latest articles on web development, UI/UX design, software engineering, and AI from Aman Saifi."
+                canonicalUrl="https://amannex.me/blogs"
+            />
     <header className={`${styles['page-header']}`}>
         <div className="container fade-up">
             <span className={`${styles['hero-badge']}`}><i className="fas fa-pen-nib" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Thoughts & Insights</span>
