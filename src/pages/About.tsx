@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import styles from './About.module.css';
 
 const About = () => {
 
     return (
         <>
+            <SEO 
+                title="About Me"
+                description="Learn more about Aman Saifi, a passionate Software Engineer and Full Stack Developer with expertise in Java, React, and WordPress."
+                canonicalUrl="https://amannex.me/about"
+            />
             
     <header className={`${styles['page-header']} container fade-up`}>
         <h1 className={`${styles['page-title']}`}>About <span className="gradient-text">Me</span></h1>

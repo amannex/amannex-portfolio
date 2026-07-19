@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import SEO from '../components/SEO';
 import styles from './Home.module.css';
 
 const Home = () => {
@@ -36,6 +37,11 @@ const Home = () => {
 
     return (
         <>
+            <SEO 
+                title="Home"
+                description="Aman Saifi is an aspiring Software Engineer & Full Stack Developer making ideas come alive through vibrant designs and robust architecture."
+                canonicalUrl="https://amannex.me/"
+            />
             
     <section className={`${styles.hero}`}>
         <div className={`container ${styles['hero-content']}`}>

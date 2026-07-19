@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import styles from './Portfolio.module.css';
 
 const Portfolio = () => {
 
     return (
         <>
+            <SEO 
+                title="Portfolio"
+                description="Explore the web development, UI/UX, and AI integration projects crafted by Aman Saifi."
+                canonicalUrl="https://amannex.me/portfolio"
+            />
             
     <header className={`${styles['page-header']}`}>
         <div className="container fade-up">

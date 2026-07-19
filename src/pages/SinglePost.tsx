@@ -4,6 +4,7 @@ import styles from './SinglePost.module.css';
 
 import PostHero from '../components/blog/PostHero';
 import TableOfContents from '../components/blog/TableOfContents';
+import SEO from '../components/SEO';
 import ReadingProgressBar from '../components/blog/ReadingProgressBar';
 
 import { useReadingTime } from '../hooks/useReadingTime';
@@ -49,7 +50,14 @@ const SinglePost = () => {
     });
 
     return (
-        <div className={styles.articleSection}>
+        <>
+            <SEO 
+                title="Building Resilient Micro Frontends"
+                description="Learn how to architect and build resilient micro frontends using React, Module Federation, and standard Web Components."
+                canonicalUrl="https://amannex.me/single-post"
+                type="article"
+            />
+            <div className={styles.articleSection}>
             <ReadingProgressBar progress={scrollProgress} />
             <PostHero post={postInfo} readingTime={readingTime} />
 
@@ -274,7 +282,8 @@ module.exports = {
 
                 </div>
             </section>
-        </div>
+            </div>
+        </>
     );
 };
 

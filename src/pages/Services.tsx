@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import styles from './Services.module.css';
 
 const Services = () => {
 
     return (
         <>
-            
+            <SEO 
+                title="Services"
+                description="Professional services including Full Stack Development, UI/UX Design, WordPress Solutions, and AI Integrations by Aman Saifi."
+                canonicalUrl="https://amannex.me/services"
+            />
     <header className={`${styles['page-header']}`}>
         <div className="container fade-up">
             <span className={`${styles['hero-badge']}`}><i className="fas fa-star" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Expertise & Offerings</span>
