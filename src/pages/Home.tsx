@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import SEO from '../components/SEO';
 import styles from './Home.module.css';
+import profileImg from '../assets/images/amannex-profile.png';
 
 const Home = () => {
 
@@ -65,12 +66,9 @@ const Home = () => {
                 <div className={`${styles['hero-shape']}`}></div>
                 
                 <div className={`${styles['hero-card']} interactive-element`} id="hero-card">
-                    <div style={{"textAlign":"center","color":"var(--text-primary)"}}>
-                         <i className="fas fa-code" style={{"background":"var(--accent-gradient)","WebkitBackgroundClip":"text","WebkitTextFillColor":"transparent"}}></i>
-                         <h3 style={{"fontSize":"1.5rem","marginTop":"1rem","color":"var(--text-secondary)"}}>Designer & Developer</h3>
-                    </div>
+                     <img src={profileImg} alt="Aman Saifi Profile" style={{"width":"100%","height":"100%","objectFit":"cover","borderRadius":"inherit","position":"relative","zIndex":"1","border":"2px solid var(--accent-color)","boxSizing":"border-box"}} />
                 </div>
-            </div>
+            </div>  
         </div>
     </section>
 

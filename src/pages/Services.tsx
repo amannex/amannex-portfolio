@@ -7,14 +7,14 @@ const Services = () => {
     return (
         <>
             <SEO 
-                title="Services"
+                title="What I Do"
                 description="Professional services including Full Stack Development, UI/UX Design, WordPress Solutions, and AI Integrations by Aman Saifi."
                 canonicalUrl="https://amannex.me/services"
             />
-    <header className={`${styles['page-header']}`}>
+    <header className="page-header">
         <div className="container fade-up">
-            <span className={`${styles['hero-badge']}`}><i className="fas fa-star" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Expertise & Offerings</span>
-            <h1 className={`${styles['page-title']}`}>Digital <span className="gradient-text">Solutions</span></h1>
+            <span className="hero-badge"><i className="fas fa-star" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Expertise & Offerings</span>
+            <h1 className="page-title">What <span className="gradient-text">I Do</span></h1>
             <p className="section-subtitle" style={{"marginBottom":"0"}}>Comprehensive suite of technical and design services tailored for modern digital experiences.</p>
         </div>
     </header>

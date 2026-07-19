@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import styles from './About.module.css';
+import profileImg from '../assets/images/amannex-profile.png';
 
 const About = () => {
 
@@ -12,9 +13,12 @@ const About = () => {
                 canonicalUrl="https://amannex.me/about"
             />
             
-    <header className={`${styles['page-header']} container fade-up`}>
-        <h1 className={`${styles['page-title']}`}>About <span className="gradient-text">Me</span></h1>
-        <p className={`${styles['page-subtitle']}`}>Learn more about my background, skills, and the journey that got me here.</p>
+    <header className="page-header">
+        <div className="container fade-up">
+            <span className="hero-badge"><i className="fas fa-user" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> My Background</span>
+            <h1 className="page-title">About <span className="gradient-text">Me</span></h1>
+            <p className="section-subtitle" style={{"marginBottom":"0"}}>Learn more about my background, skills, and the journey that got me here.</p>
+        </div>
     </header>
 
     
@@ -22,8 +26,8 @@ const About = () => {
         <div className={`container ${styles['about-content']}`}>
             <div className={`${styles['about-image']} fade-up`}>
                 
-                <div style={{"background":"var(--accent-gradient)","height":"500px","display":"flex","alignItems":"center","justifyContent":"center","color":"white","fontSize":"8rem","borderRadius":"var(--border-radius-lg)"}}>
-                    <i className="fas fa-user-astronaut"></i>
+                <div style={{"height":"500px", "display":"flex","alignItems":"center","justifyContent":"center","color":"white","fontSize":"8rem","borderRadius":"var(--border-radius-lg)"}}>
+                    <img src={profileImg} alt="Aman Saifi Profile" style={{"width":"100%","height":"100%","objectFit":"cover","borderRadius":"inherit","position":"relative","zIndex":"1","border":"2px solid var(--accent-color)","boxSizing":"border-box"}} />
                 </div>
             </div>
             <div className={`${styles['about-text']} fade-up`} style={{"transitionDelay":"0.2s"}}>

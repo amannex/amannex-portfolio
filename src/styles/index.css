@@ -222,6 +222,11 @@ img {
     z-index: 1002;
 }
 
+/* Reduce padding specifically for buttons in the navbar */
+.navbar .btn {
+    padding: 0.5rem 1.25rem;
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
@@ -480,4 +485,37 @@ img {
         display: none;
         /* Disable custom cursor on mobile */
     }
+}
+
+/* Page Header */
+.page-header {
+    padding: 180px 0 100px;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.page-header .hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 180, 0, 0.1);
+    color: var(--accent-secondary);
+    border-radius: 50px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 180, 0, 0.2);
+}
+
+.page-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.125rem;
 }
