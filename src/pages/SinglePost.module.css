@@ -1,5 +1,6 @@
 .articleSection {
-  background: var(--bg-primary);
+  background-color: var(--bg-primary);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
   position: relative;
 }
 
@@ -171,53 +172,87 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--bg-secondary);
-  color: var(--text-primary);
+  background: #f8fafc;
+  color: #334155;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
-  border: 1px solid var(--border-light);
+  border: 1px solid #e2e8f0;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .shareBtn:hover {
-  background: var(--accent-color);
-  color: #fff;
-  border-color: var(--accent-color);
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.postShareBottom {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.shareTitle {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-right: 0.5rem;
 }
 
 /* Author Box */
 .authorBox {
   display: flex;
   gap: 2rem;
-  padding: 2.5rem;
-  background: var(--bg-secondary);
-  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  background: #f8fafc;
+  border-radius: 8px;
   margin-top: 3rem;
-  align-items: flex-start;
-  border: 1px solid var(--border-light);
+  align-items: center;
+  border: none;
 }
 
-.authorImg {
-  width: 100px;
-  height: 100px;
+.authorAvatarInitials {
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  object-fit: cover;
+  background: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 700;
   flex-shrink: 0;
-  border: 3px solid var(--accent-color);
 }
 
-.authorInfo h3 {
+.writtenBy {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.authorName {
   font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
   margin-bottom: 0.5rem;
 }
 
 .authorInfo p {
-  color: var(--text-secondary);
+  color: #475569;
   line-height: 1.6;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
 }
 
 .authorSocial {
@@ -225,24 +260,25 @@
   gap: 1rem;
 }
 
-.authorSocial a {
-  color: var(--text-primary);
-  width: 40px;
-  height: 40px;
+.socialLink {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-primary);
-  border-radius: 50%;
-  transition: all var(--transition-fast);
-  border: 1px solid var(--border-light);
+  color: #475569;
+  background: transparent;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  text-decoration: none;
 }
 
-.authorSocial a:hover {
-  background: var(--accent-color);
-  color: #fff;
-  border-color: var(--accent-color);
-  transform: translateY(-2px);
+.socialLink:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #cbd5e1;
 }
 
 @media (max-width: 768px) {
@@ -254,35 +290,110 @@
 }
 
 .inPostCta {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
-  border-left: 4px solid var(--accent-color);
-  padding: 2.5rem;
-  border-radius: 12px;
-  margin: 3.5rem 0;
-  text-align: center;
+  background: #000000; /* very dark green from screenshot */
+  border: none;
+  padding: 3.5rem 4rem;
+  border-radius: 20px;
+  margin: 4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+.ctaContent {
+  flex: 1;
 }
 
 .inPostCta h3 {
   margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
 }
 
 .inPostCta p {
-  margin-bottom: 1.5rem;
-  color: var(--text-secondary);
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  max-width: 500px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  color: #022c16;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.05rem;
+  white-space: nowrap;
+}
+
+.ctaBtn:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+  color: #022c16;
+  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+}
+
+@media (max-width: 768px) {
+  .inPostCta {
+    flex-direction: column;
+    text-align: left;
+    padding: 2.5rem 2rem;
+  }
 }
 
 .commentsSection {
-  margin-top: 5rem;
-  border-top: 1px solid var(--border-light);
-  padding-top: 3rem;
+  margin-top: 0;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2.5rem;
 }
 
-.commentsSection h3 {
-  font-size: 1.8rem;
+.commentsSection h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+
+.noComments {
+  padding: 1.5rem;
+  text-align: center;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
   margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.commentTextarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 100px;
+  font-size: 0.95rem;
+}
+.commentTextarea::placeholder {
+  color: #94a3b8;
+}
+.commentTextarea:focus {
+  outline: none;
+  border-color: #94a3b8;
 }
 
 .commentForm {
@@ -290,10 +401,6 @@
   flex-direction: column;
   gap: 1.5rem;
   margin-bottom: 4rem;
-  background: var(--bg-secondary);
-  padding: 2.5rem;
-  border-radius: 16px;
-  border: 1px solid var(--border-light);
 }
 
 .formRow {
@@ -329,21 +436,22 @@
 }
 
 .submitBtn {
-  align-self: flex-start;
-  padding: 1rem 2.5rem;
+  align-self: flex-end;
+  padding: 0.8rem 1.8rem;
   background: var(--accent-color);
   color: white;
   border: none;
   border-radius: 50px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: all var(--transition-fast);
-  margin-top: 1rem;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
 }
 
 .submitBtn:hover {
   transform: translateY(-2px);
-  background: var(--accent-hover);
+  background: #000000;
 }
 
 .commentList {
@@ -410,6 +518,7 @@
 /* Related Posts */
 .relatedPostsSection {
   margin-top: 4rem;
+  margin-bottom: 6rem;
   padding-top: 3rem;
   border-top: 1px solid var(--border-light);
 }
@@ -516,4 +625,81 @@
 
 .relatedReadMore:hover i {
   transform: translateX(4px);
+}
+
+/* FAQs Accordion */
+.faqSection {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.faqSection h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordionItem {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.accordionItem.active {
+  border-color: #0f172a;
+}
+
+.accordionHeader {
+  width: 100%;
+  text-align: left;
+  padding: 1.2rem 1.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+  font-family: inherit;
+}
+
+.accordionHeader:hover {
+  background: #f8fafc;
+}
+
+.accordionIcon {
+  font-size: 0.9rem;
+  color: #64748b;
+  transition: transform 0.3s ease;
+}
+
+.accordionItem.active .accordionIcon {
+  transform: rotate(180deg);
+  color: #0f172a;
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #ffffff;
+}
+
+.accordionContent p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
 }

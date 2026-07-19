@@ -29,7 +29,7 @@ export function injectHeadingIds(html: string, headings: any[]) {
   );
 }
 
-export function useTableOfContents({ htmlContent, containerRef, levels = HEADING_LEVELS }: { htmlContent?: string, containerRef?: React.RefObject<HTMLElement | null>, levels?: string[] } = {}) {
+export function useTableOfContents({ htmlContent, containerRef, levels = HEADING_LEVELS, ignoreSelector }: { htmlContent?: string, containerRef?: React.RefObject<HTMLElement | null>, levels?: string[], ignoreSelector?: string } = {}) {
   const [activeId, setActiveId] = useState('');
   const [domHeadings, setDomHeadings] = useState<any[]>([]);
 
@@ -55,7 +55,10 @@ export function useTableOfContents({ htmlContent, containerRef, levels = HEADING
   useEffect(() => {
     if (!containerRef?.current) return;
     const selector = levels.join(', ');
-    const elements = Array.from(containerRef.current.querySelectorAll(selector));
+    let elements = Array.from(containerRef.current.querySelectorAll(selector));
+    if (ignoreSelector) {
+      elements = elements.filter(el => !el.closest(ignoreSelector));
+    }
     const items = elements.map((el, index) => {
       const text = el.textContent?.trim() || '';
       const level = parseInt(el.tagName.replace('H', ''), 10);
