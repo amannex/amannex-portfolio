@@ -80,10 +80,14 @@ const SinglePost = () => {
                                 </blockquote>
 
                                 {/* CTA in between the blog */}
-                                <div className={styles.inPostCta}>
-                                    <h3>Enjoying this article?</h3>
-                                    <p>Join my newsletter for weekly insights on web architecture, design, and modern development.</p>
-                                    <a href="#" className="btn">Subscribe Now</a>
+                                <div className={`${styles.inPostCta} no-toc`}>
+                                    <div className={styles.ctaContent}>
+                                        <h3>Ready to scale your business?</h3>
+                                        <p>Let our experts help you build a strategy that drives real growth.</p>
+                                    </div>
+                                    <Link to="/contact" className={styles.ctaBtn}>
+                                        Get in Touch &rarr;
+                                    </Link>
                                 </div>
 
                                 <h2>How Module Federation Changes the Game</h2>
