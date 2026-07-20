@@ -110,33 +110,42 @@ const Home = () => {
 
             <div className={`${styles['project-wrapper']} fade-up`} style={{"transitionDelay":"0.2s"}}>
                 
-                
                 <div className={`${styles['project-card']} interactive-element`}>
-                    <div className={`${styles['project-image']}`}>
-                        <i className="fas fa-shield-alt"></i>
-                    </div>
                     <div className={`${styles['project-details']}`}>
                         <span className={`${styles.tag}`}>AI / ML</span>
-                        <h3 style={{"fontSize":"2rem","marginBottom":"1rem"}}>Fake News Detector</h3>
-                        <p style={{"color":"var(--text-secondary)","marginBottom":"2rem"}}>
-                            An advanced text-classification system built using Python and deep learning models (BiLSTM) to accurately identify and filter out misleading news articles.
-                        </p>
-                        <a href="#" className="btn btn-outline" style={{"width":"fit-content"}}>View Details <i className="fas fa-external-link-alt"></i></a>
+                        <h3 className={`${styles['project-title']}`}>Fake News Detector</h3>
+                        <div className={`${styles['project-content']}`}>
+                            <p className={`${styles['project-desc']}`}>
+                                An advanced text-classification system built using Python and deep learning models (BiLSTM) to accurately identify and filter out misleading news articles.
+                            </p>
+                            <Link to="/portfolio" className={`${styles['project-link']}`}>View Project <i className="fas fa-arrow-up-right-from-square"></i></Link>
+                        </div>
                     </div>
                 </div>
 
-                
-                <div className={`${styles['project-card']} interactive-element`} style={{"marginTop":"2rem"}}>
-                    <div className={`${styles['project-details']}`} style={{"order":"2"}}>
+                <div className={`${styles['project-card']} interactive-element`}>
+                    <div className={`${styles['project-details']}`}>
                         <span className={`${styles.tag}`}>WordPress</span>
-                        <h3 style={{"fontSize":"2rem","marginBottom":"1rem"}}>Markencia Agency</h3>
-                        <p style={{"color":"var(--text-secondary)","marginBottom":"2rem"}}>
-                            A premium, high-conversion Marketing Agency website built exclusively on WordPress utilizing sophisticated layouts and dynamic post filtering.
-                        </p>
-                        <a href="#" className="btn btn-outline" style={{"width":"fit-content"}}>View Details <i className="fas fa-external-link-alt"></i></a>
+                        <h3 className={`${styles['project-title']}`}>Markencia Agency</h3>
+                        <div className={`${styles['project-content']}`}>
+                            <p className={`${styles['project-desc']}`}>
+                                A premium, high-conversion Marketing Agency website built exclusively on WordPress utilizing sophisticated layouts and dynamic post filtering.
+                            </p>
+                            <Link to="/portfolio" className={`${styles['project-link']}`}>View Project <i className="fas fa-arrow-up-right-from-square"></i></Link>
+                        </div>
                     </div>
-                    <div className={`${styles['project-image']}`} style={{"order":"1","borderRight":"1px solid var(--border-light)","borderLeft":"none"}}>
-                        <i className="fas fa-globe"></i>
+                </div>
+
+                <div className={`${styles['project-card']} interactive-element`}>
+                    <div className={`${styles['project-details']}`}>
+                        <span className={`${styles.tag}`}>React Native</span>
+                        <h3 className={`${styles['project-title']}`}>E-Commerce App</h3>
+                        <div className={`${styles['project-content']}`}>
+                            <p className={`${styles['project-desc']}`}>
+                                A cross-platform mobile application providing seamless shopping experiences with secure payment gateway integration and real-time order tracking.
+                            </p>
+                            <Link to="/portfolio" className={`${styles['project-link']}`}>View Project <i className="fas fa-arrow-up-right-from-square"></i></Link>
+                        </div>
                     </div>
                 </div>
 
