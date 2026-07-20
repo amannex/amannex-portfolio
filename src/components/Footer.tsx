@@ -1,44 +1,47 @@
 import { Link } from 'react-router-dom';
+import styles from './Footer.module.css';
 
 const Footer = () => {
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
     return (
-        <footer className="footer">
-            <div className="container">
-                <div className="footer-content fade-up">
-                    <div className="footer-brand">
-                        <h3>Aman<span style={{ color: 'var(--accent-color)' }}>neX</span></h3>
-                        <p style={{ color: 'var(--text-secondary)', maxWidth: '320px' }}>
-                            Transforming complex problems into elegant, scaleable, and intuitive digital solutions. Open for freelance opportunities.
-                        </p>
-                        <div className="social-links">
-                            <a href="https://github.com/saifiaman" target="_blank" rel="noreferrer" className="social-icon interactive-element"><i className="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/amannex/" target="_blank" rel="noreferrer" className="social-icon interactive-element"><i className="fab fa-linkedin-in"></i></a>
-                            <a href="https://www.instagram.com/amannex_/" target="_blank" rel="noreferrer" className="social-icon interactive-element"><i className="fab fa-instagram"></i></a>
-                        </div>
+        <footer className={styles.footer}>
+            <div className={styles.container}>
+                {/* Top Row */}
+                <div className={`${styles.topRow} fade-up`}>
+                    <div className={styles.copyright}>
+                        &copy; 2026
                     </div>
-                    
-                    <div className="footer-links">
-                        <h4>Navigation</h4>
-                        <ul>
-                            <li><Link to="/" className="interactive-element">Home</Link></li>
-                            <li><Link to="/about" className="interactive-element">About Me</Link></li>
-                            <li><Link to="/portfolio" className="interactive-element">Portfolio</Link></li>
-                            <li><Link to="/contact" className="interactive-element">Contact</Link></li>
-                        </ul>
-                    </div>
-                    
-                    <div className="footer-links">
-                        <h4>What I Do</h4>
-                        <ul>
-                            <li><Link to="/services" className="interactive-element">Web Development</Link></li>
-                            <li><Link to="/services" className="interactive-element">WordPress Solutions</Link></li>
-                            <li><Link to="/services" className="interactive-element">AI Integration</Link></li>
-                        </ul>
-                    </div>
+                    <button className={styles.backToTop} onClick={scrollToTop}>
+                        BACK TO TOP
+                        <span className={styles.iconCircle}>
+                            <i className="fas fa-arrow-up"></i>
+                        </span>
+                    </button>
                 </div>
-                
-                <div className="footer-bottom">
-                    <p>Made with ❤️ & <span style={{ color: 'var(--accent-color)' }}>⚡</span> | &copy; 2026 All rights reserved by Amannex.</p>
+
+                {/* Middle Row */}
+                <div className={`${styles.middleRow} fade-up`} style={{transitionDelay: '0.1s'}}>
+                    <p className={styles.subtitle}>HAVE A PROJECT IN MIND?</p>
+                    <Link to="/contact" className={styles.title} style={{textDecoration: 'none'}}>LET'S TALK</Link>
+                </div>
+
+                {/* Bottom Row */}
+                <div className={`${styles.bottomRow} fade-up`} style={{transitionDelay: '0.2s'}}>
+                    <div className={styles.socialButtons}>
+                        <a href="https://github.com/saifiaman" target="_blank" rel="noreferrer" className={styles.socialBtn}>GITHUB</a>
+                        <a href="https://www.linkedin.com/in/amannex/" target="_blank" rel="noreferrer" className={styles.socialBtn}>LINKEDIN</a>
+                        <a href="https://www.instagram.com/amannex_/" target="_blank" rel="noreferrer" className={styles.socialBtn}>TWITTER</a>
+                    </div>
+                    
+                    <div className={styles.credits}>
+                        <p>Design &amp; Development by <strong>Aman Saifi</strong></p>
+                    </div>
                 </div>
             </div>
         </footer>
