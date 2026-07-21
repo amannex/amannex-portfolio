@@ -48,79 +48,178 @@
             font-size: 1.125rem;
         }
 
-        /* Timeline / Experience */
-        .timeline {
+        /* Horizontal Timeline */
+        .horizontal-timeline {
             position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding-top: 40px;
+            margin-top: 3rem;
+            width: 100%;
         }
 
-        .timeline::before {
+        /* The horizontal line */
+        .horizontal-timeline::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 20px;
-            height: 100%;
-            width: 2px;
+            top: 49px; /* aligns with center of dots */
+            left: 0;
+            width: 100%;
+            height: 2px;
             background: var(--border-light);
+            z-index: 1;
         }
 
-        .timeline-item {
+        .ht-item {
             position: relative;
-            padding-left: 60px;
-            margin-bottom: 3rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
         }
 
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 10px;
-            top: 5px;
+        .ht-dot {
             width: 22px;
             height: 22px;
             border-radius: 50%;
             background: var(--accent-gradient);
             border: 4px solid var(--bg-primary);
             box-shadow: 0 0 0 4px rgba(255, 180, 0, 0.2);
-            z-index: 2;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
-        .timeline-content {
+        .ht-item:hover .ht-dot {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 6px rgba(255, 180, 0, 0.3);
+        }
+
+        .ht-content {
             background: var(--bg-primary);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-light);
-            transition: all var(--transition-smooth);
+            width: 100%;
+            text-align: left;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
-        .timeline-content:hover {
-            box-shadow: var(--shadow-md);
+        .ht-item:hover .ht-content {
+            box-shadow: var(--shadow-lg);
             border-color: var(--accent-color);
             transform: translateY(-5px);
         }
 
-        .timeline-date {
+        .ht-date {
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
             color: var(--accent-secondary);
             margin-bottom: 0.5rem;
             display: block;
+            font-size: 0.9rem;
         }
 
-        .timeline-content h4 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+        .ht-title {
+            font-size: 1.15rem;
+            margin-bottom: 0.25rem;
         }
 
-        .timeline-content h5 {
-            font-size: 1rem;
+        .ht-subtitle {
+            font-size: 0.9rem;
             color: var(--text-secondary);
             font-weight: 500;
+        }
+
+        .ht-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 0;
+        }
+
+        /* Hover Reveal */
+        .ht-item:hover .ht-details {
+            max-height: 1500px;
+            opacity: 1;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .struggle-box, .breakthrough-box {
+            padding: 1.25rem;
+            border-radius: var(--border-radius);
             margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .struggle-box {
+            background: rgba(255, 60, 60, 0.05);
+            border-left: 4px solid #ff3c3c;
+        }
+
+        .struggle-box h6 {
+            color: #ff3c3c;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breakthrough-box {
+            background: rgba(46, 213, 115, 0.05);
+            border-left: 4px solid #2ed573;
+            margin-bottom: 0;
+        }
+
+        .breakthrough-box h6 {
+            color: #2ed573;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .struggle-box p, .breakthrough-box p {
+            color: var(--text-secondary) !important;
+            font-size: 0.9rem !important;
+            margin-bottom: 0 !important;
+        }
+
+        @media (max-width: 992px) {
+            .horizontal-timeline {
+                flex-direction: column;
+                padding-top: 0;
+                gap: 2rem;
+            }
+            .horizontal-timeline::before {
+                top: 0;
+                left: 10px;
+                width: 2px;
+                height: 100%;
+            }
+            .ht-item {
+                flex-direction: row;
+                width: 100%;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+            .ht-dot {
+                margin-top: 10px;
+                margin-bottom: 0;
+                z-index: 2;
+            }
         }
 
         /* Skills Grid */
