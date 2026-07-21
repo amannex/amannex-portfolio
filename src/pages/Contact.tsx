@@ -20,7 +20,7 @@ const Contact = () => {
     </header>
 
     
-    <section className={`section ${styles['pt-0']}`}>
+    <section className="section section-alt">
         <div className={`container ${styles['contact-info-grid']}`} style={{"display":"grid","gridTemplateColumns":"1fr 1.5fr","gap":"4rem","alignItems":"flex-start"}}>
             
             
@@ -40,63 +40,68 @@ const Contact = () => {
                         </div>
                     </div>
                     
-                    <div className={`${styles['info-item']} interactive-element`} style={{"display":"flex","alignItems":"flex-start","gap":"1.5rem","padding":"1.5rem","background":"var(--bg-primary)","borderRadius":"var(--border-radius)","border":"1px solid var(--border-light)","boxShadow":"var(--shadow-sm)","transition":"all var(--transition-fast)"}}>
+                    
+                    <div className={`${styles['info-item']}`} style={{"display":"flex","alignItems":"flex-start","gap":"1.5rem","padding":"1.5rem","background":"var(--bg-primary)","borderRadius":"var(--border-radius)","border":"1px solid var(--border-light)","boxShadow":"var(--shadow-sm)","transition":"all var(--transition-fast)"}}>
                         <div className={`${styles['info-icon']}`} style={{"flexShrink":"0","width":"50px","height":"50px","borderRadius":"50%","background":"var(--accent-glow)","color":"var(--accent-secondary)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.25rem"}}><i className="fas fa-envelope"></i></div>
                         <div>
                             <h5 style={{"fontSize":"1.125rem","marginBottom":"0.25rem"}}>Email</h5>
-                            <a href="mailto:hello@amannex.me" style={{"color":"var(--text-secondary)","textDecoration":"none","display":"block","overflowWrap":"break-word","wordBreak":"break-all"}}>hello@amannex.me</a>
+                            <p style={{"color":"var(--text-secondary)"}}>hello@amannex.me</p>
                         </div>
                     </div>
-
-                    <div className={`${styles['info-item']} interactive-element`} style={{"display":"flex","alignItems":"flex-start","gap":"1.5rem","padding":"1.5rem","background":"var(--bg-primary)","borderRadius":"var(--border-radius)","border":"1px solid var(--border-light)","boxShadow":"var(--shadow-sm)","transition":"all var(--transition-fast)"}}>
-                        <div className={`${styles['info-icon']}`} style={{"flexShrink":"0","width":"50px","height":"50px","borderRadius":"50%","background":"var(--accent-glow)","color":"var(--accent-secondary)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.25rem"}}><i className="fas fa-phone-alt"></i></div>
-                        <div>
-                            <h5 style={{"fontSize":"1.125rem","marginBottom":"0.25rem"}}>Phone</h5>
-                            <a href="tel:+1234567890" style={{"color":"var(--text-secondary)","textDecoration":"none","display":"block"}}>+1 (234) 567-890</a>
-                        </div>
+                    
+                </div>
+                
+                <div style={{"marginTop":"3rem"}}>
+                    <h4 style={{"marginBottom":"1rem","fontSize":"1.25rem"}}>Connect on Social</h4>
+                    <div style={{"display":"flex","gap":"1rem"}}>
+                        <a href="#" style={{"width":"40px","height":"40px","borderRadius":"50%","background":"var(--bg-secondary)","display":"flex","alignItems":"center","justifyContent":"center","color":"var(--text-secondary)","border":"1px solid var(--border-light)","transition":"all var(--transition-fast)"}} className="interactive-element"><i className="fab fa-twitter"></i></a>
+                        <a href="#" style={{"width":"40px","height":"40px","borderRadius":"50%","background":"var(--bg-secondary)","display":"flex","alignItems":"center","justifyContent":"center","color":"var(--text-secondary)","border":"1px solid var(--border-light)","transition":"all var(--transition-fast)"}} className="interactive-element"><i className="fab fa-github"></i></a>
+                        <a href="#" style={{"width":"40px","height":"40px","borderRadius":"50%","background":"var(--bg-secondary)","display":"flex","alignItems":"center","justifyContent":"center","color":"var(--text-secondary)","border":"1px solid var(--border-light)","transition":"all var(--transition-fast)"}} className="interactive-element"><i className="fab fa-linkedin-in"></i></a>
+                        <a href="#" style={{"width":"40px","height":"40px","borderRadius":"50%","background":"var(--bg-secondary)","display":"flex","alignItems":"center","justifyContent":"center","color":"var(--text-secondary)","border":"1px solid var(--border-light)","transition":"all var(--transition-fast)"}} className="interactive-element"><i className="fab fa-youtube"></i></a>
                     </div>
-
                 </div>
             </div>
-
             
-            <div className={`${styles['contact-form-wrapper']} fade-up`} style={{"transitionDelay":"0.2s","background":"var(--bg-primary)","padding":"3rem","borderRadius":"var(--border-radius-lg)","boxShadow":"var(--shadow-lg)","border":"1px solid var(--border-light)","position":"relative","overflow":"hidden"}}>
-                <div style={{"position":"absolute","top":"-50px","right":"-50px","width":"150px","height":"150px","background":"var(--accent-gradient)","filter":"blur(60px)","opacity":"0.4","borderRadius":"50%","zIndex":"0"}}></div>
-                
-                <h4 style={{"fontSize":"1.75rem","marginBottom":"2rem","fontFamily":"'Outfit', sans-serif","position":"relative","zIndex":"1"}}>Send a Message</h4>
-                
-                <form action="#" method="POST" className={`${styles['contact-form']}`} style={{"display":"flex","flexDirection":"column","gap":"1.5rem","position":"relative","zIndex":"1"}}>
-                    <div className={`${styles['form-row']}`} style={{"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"1.5rem"}}>
-                        <div className="form-group">
-                            <label style={{"display":"block","fontSize":"0.875rem","fontWeight":"600","marginBottom":"0.5rem","color":"var(--text-secondary)"}}>Your Name</label>
-                            <input type="text" placeholder="John Doe" className="form-control interactive-element" required style={{"width":"100%","padding":"1rem 1.25rem","borderRadius":"12px","border":"1px solid var(--border-light)","background":"var(--bg-secondary)","fontFamily":"inherit","fontSize":"1rem","color":"var(--text-primary)","transition":"all var(--transition-fast)","outline":"none"}} />
+            
+            <div className={`${styles['contact-form-container']} fade-up`} style={{"background":"var(--bg-primary)","padding":"3rem","borderRadius":"var(--border-radius-lg)","boxShadow":"var(--shadow-md)","border":"1px solid var(--border-light)","transitionDelay":"0.2s"}}>
+                <form className={styles['contact-form']} style={{"display":"flex","flexDirection":"column","gap":"1.5rem"}}>
+                    <div style={{"display":"grid","gridTemplateColumns":"1fr 1fr","gap":"1.5rem"}}>
+                        <div className={styles['form-group']}>
+                            <label style={{"display":"block","marginBottom":"0.5rem","fontWeight":"500","fontSize":"0.95rem"}}>First Name</label>
+                            <input type="text" placeholder="John" style={{"width":"100%","padding":"1rem 1.25rem","borderRadius":"12px","border":"1px solid var(--border-light)","background":"var(--bg-secondary)","color":"var(--text-primary)","fontFamily":"inherit","fontSize":"1rem","outline":"none","transition":"border-color var(--transition-fast)"}} />
                         </div>
-                        <div className="form-group">
-                            <label style={{"display":"block","fontSize":"0.875rem","fontWeight":"600","marginBottom":"0.5rem","color":"var(--text-secondary)"}}>Your Email</label>
-                            <input type="email" placeholder="john@example.com" className="form-control interactive-element" required style={{"width":"100%","padding":"1rem 1.25rem","borderRadius":"12px","border":"1px solid var(--border-light)","background":"var(--bg-secondary)","fontFamily":"inherit","fontSize":"1rem","color":"var(--text-primary)","transition":"all var(--transition-fast)","outline":"none"}} />
+                        <div className={styles['form-group']}>
+                            <label style={{"display":"block","marginBottom":"0.5rem","fontWeight":"500","fontSize":"0.95rem"}}>Last Name</label>
+                            <input type="text" placeholder="Doe" style={{"width":"100%","padding":"1rem 1.25rem","borderRadius":"12px","border":"1px solid var(--border-light)","background":"var(--bg-secondary)","color":"var(--text-primary)","fontFamily":"inherit","fontSize":"1rem","outline":"none","transition":"border-color var(--transition-fast)"}} />
                         </div>
                     </div>
                     
-                    <div className="form-group">
-                        <label style={{"display":"block","fontSize":"0.875rem","fontWeight":"600","marginBottom":"0.5rem","color":"var(--text-secondary)"}}>Subject</label>
-                        <input type="text" placeholder="Project Inquiry" className="form-control interactive-element" required style={{"width":"100%","padding":"1rem 1.25rem","borderRadius":"12px","border":"1px solid var(--border-light)","background":"var(--bg-secondary)","fontFamily":"inherit","fontSize":"1rem","color":"var(--text-primary)","transition":"all var(--transition-fast)","outline":"none"}} />
+                    <div className={styles['form-group']}>
+                        <label style={{"display":"block","marginBottom":"0.5rem","fontWeight":"500","fontSize":"0.95rem"}}>Email Address</label>
+                        <input type="email" placeholder="john@example.com" style={{"width":"100%","padding":"1rem 1.25rem","borderRadius":"12px","border":"1px solid var(--border-light)","background":"var(--bg-secondary)","color":"var(--text-primary)","fontFamily":"inherit","fontSize":"1rem","outline":"none","transition":"border-color var(--transition-fast)"}} />
                     </div>
                     
-                    <div className="form-group">
-                        <label style={{"display":"block","fontSize":"0.875rem","fontWeight":"600","marginBottom":"0.5rem","color":"var(--text-secondary)"}}>Message</label>
-                        <textarea placeholder="Tell me about your project..." rows={5} className="form-control interactive-element" required style={{"width":"100%","padding":"1rem 1.25rem","borderRadius":"12px","border":"1px solid var(--border-light)","background":"var(--bg-secondary)","fontFamily":"inherit","fontSize":"1rem","color":"var(--text-primary)","transition":"all var(--transition-fast)","outline":"none","resize":"vertical"}}></textarea>
+                    <div className={styles['form-group']}>
+                        <label style={{"display":"block","marginBottom":"0.5rem","fontWeight":"500","fontSize":"0.95rem"}}>Subject</label>
+                        <input type="text" placeholder="Project Inquiry" style={{"width":"100%","padding":"1rem 1.25rem","borderRadius":"12px","border":"1px solid var(--border-light)","background":"var(--bg-secondary)","color":"var(--text-primary)","fontFamily":"inherit","fontSize":"1rem","outline":"none","transition":"border-color var(--transition-fast)"}} />
                     </div>
                     
-                    <button type="submit" className="btn btn-primary interactive-element" style={{"width":"100%","marginTop":"1rem","justifyContent":"center","padding":"1rem"}}>
-                        Send Message <i className="fas fa-paper-plane" style={{"marginLeft":"0.5rem"}}></i>
+                    <div className={styles['form-group']}>
+                        <label style={{"display":"block","marginBottom":"0.5rem","fontWeight":"500","fontSize":"0.95rem"}}>Message</label>
+                        <textarea placeholder="Tell me about your project..." rows={5} style={{"width":"100%","padding":"1rem 1.25rem","borderRadius":"12px","border":"1px solid var(--border-light)","background":"var(--bg-secondary)","color":"var(--text-primary)","fontFamily":"inherit","fontSize":"1rem","outline":"none","transition":"border-color var(--transition-fast)","resize":"vertical"}}></textarea>
+                    </div>
+                    
+                    <button type="button" className="btn btn-primary interactive-element" style={{"marginTop":"1rem","padding":"1rem","fontSize":"1.1rem","display":"flex","justifyContent":"center"}}>
+                        Send Message <i className="fas fa-paper-plane"></i>
                     </button>
                 </form>
             </div>
+            
         </div>
     </section>
 
     
-    <section className="section section-alt">
+    <section className="section">
         <div className="container fade-up">
             <h2 className="section-title">Frequently Asked <span style={{"color":"var(--accent-color)"}}>Questions</span></h2>
             <p className="section-subtitle">A few common questions I get asked regarding services and workflows.</p>

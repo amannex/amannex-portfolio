@@ -15,7 +15,8 @@ html {
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-primary); /* Fallback */
+    background-color: var(--bg-primary);
+    /* Fallback */
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -108,7 +109,6 @@ img {
     position: relative;
     scroll-snap-align: start;
     scroll-snap-stop: always;
-    min-height: 100vh;
 }
 
 .section-alt {
@@ -330,7 +330,8 @@ img {
         right: 24px;
         width: auto;
         height: auto;
-        background: var(--bg-primary); /* Solid color instead of glassmorphism */
+        background: var(--bg-primary);
+        /* Solid color instead of glassmorphism */
         border: 1px solid var(--border-light);
         border-radius: var(--border-radius);
         box-shadow: var(--shadow-lg);
@@ -368,16 +369,17 @@ img {
     }
 
     /* Prevent glowing blobs from causing horizontal scroll on mobile */
-    body::before, body::after {
+    body::before,
+    body::after {
         width: 300px;
         height: 300px;
         filter: blur(60px);
     }
-    
+
     body::before {
         left: -100px;
     }
-    
+
     body::after {
         right: -100px;
     }
@@ -406,7 +408,6 @@ img {
     padding: 180px 0 100px;
     text-align: center;
     position: relative;
-    border-bottom: 1px solid var(--border-light);
     scroll-snap-align: start;
 }
 

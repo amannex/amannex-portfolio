@@ -21,7 +21,7 @@ const Portfolio = () => {
     </header>
 
     
-    <section className="section">
+    <section className="section section-alt">
         <div className="container">
             
             <div className={`${styles['filter-container']} fade-up`} style={{"transitionDelay":"0.1s"}}>
