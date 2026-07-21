@@ -40,12 +40,38 @@ const storyData = [
 ];
 
 const About = () => {
+    const [activeLevel, setActiveLevel] = useState(0);
+
+    const numNodes = storyData.length;
+    
+    // Generate a snake-like path based on the number of nodes
+    const generatePath = () => {
+        let path = "";
+        for (let i = 0; i < numNodes; i++) {
+            const isLeft = i % 2 === 0;
+            const x = isLeft ? 25 : 75; // 25% and 75% for better spacing
+            const y = (i + 0.5) * (100 / numNodes);
+
+            if (i === 0) {
+                path += `M ${x} ${y}`;
+            } else {
+                const prevIsLeft = (i - 1) % 2 === 0;
+                const prevX = prevIsLeft ? 25 : 75;
+                const prevY = ((i - 1) + 0.5) * (100 / numNodes);
+                const midY = (prevY + y) / 2;
+                
+                // Smooth bezier curve connecting points
+                path += ` C ${prevX} ${midY}, ${x} ${midY}, ${x} ${y}`;
+            }
+        }
+        return path;
+    };
+
     return (
         <>
             <SEO 
-                title="About Me"
-                description="Learn more about Aman Saifi, a passionate Software Engineer and Full Stack Developer with expertise in Java, React, and WordPress."
-                canonicalUrl="https://amannex.me/about"
+                title="About | Aman Saifi" 
+                description="Learn more about Aman Saifi, a Full Stack Developer and Content Creator."
             />
             
     <header className="page-header">
@@ -79,6 +105,75 @@ const About = () => {
     
     <section className="section section-alt">
         <div className="container">
+            <h2 className="section-title fade-up">My <span style={{"color":"var(--accent-color)"}}>Story & Struggles</span></h2>
+            <p className="section-subtitle fade-up" style={{"transitionDelay":"0.1s"}}>The journey wasn't always easy. Here is the unvarnished path of my struggles and breakthroughs.</p>
+
+            <div className={`${styles['two-column-layout']} fade-up`} style={{"transitionDelay":"0.2s"}}>
+                {/* LEFT COLUMN: Map */}
+                <div className={styles['map-column']}>
+                    <div className={styles['candy-map']}>
+                        {/* The Curvy Path SVG */}
+                        <svg className={styles['candy-path']} viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d={generatePath()} fill="none" stroke="var(--border-light)" strokeWidth="1.5" strokeDasharray="3,3" />
+                        </svg>
+                        
+                        {/* Map Nodes */}
+                        {storyData.map((story, i) => {
+                            const isLeft = i % 2 === 0;
+                            const x = isLeft ? 25 : 75;
+                            const y = (i + 0.5) * (100 / numNodes);
+
+                            return (
+                                <div 
+                                    key={i} 
+                                    className={styles['map-node-wrapper']}
+                                    style={{ left: `${x}%`, top: `${y}%` }}
+                                >
+                                    <div 
+                                        className={`${styles['map-node']} ${activeLevel === i ? styles['active'] : ''}`}
+                                        onClick={() => setActiveLevel(i)}
+                                    >
+                                        <div className={styles['node-dot']}>
+                                            <i className={activeLevel === i ? 'fas fa-star' : 'fas fa-lock'}></i>
+                                        </div>
+                                        <div className={styles['node-label']}>{story.period}</div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* RIGHT COLUMN: Details */}
+                <div className={styles['detail-column']}>
+                    <div key={activeLevel} className={styles['detail-card']}>
+                        <div className={styles['detail-header']}>
+                            <span className={styles['detail-date']}>{storyData[activeLevel].period}</span>
+                            <h3 className={styles['detail-title']}>{storyData[activeLevel].title}</h3>
+                            <h4 className={styles['detail-subtitle']}>{storyData[activeLevel].subtitle}</h4>
+                        </div>
+                        
+                        <p className={styles['detail-summary']}>{storyData[activeLevel].summary}</p>
+                        
+                        <div className={styles['detail-grid']}>
+                            <div className={styles['struggle-box']}>
+                                <h6><i className="fas fa-bolt"></i> The Struggle</h6>
+                                <p>{storyData[activeLevel].struggle}</p>
+                            </div>
+                            <div className={styles['breakthrough-box']}>
+                                <h6><i className="fas fa-star"></i> The Breakthrough</h6>
+                                <p>{storyData[activeLevel].breakthrough}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section className="section">
+        <div className="container">
             <h2 className="section-title fade-up">My <span style={{"color":"var(--accent-color)"}}>Expertise</span></h2>
             <p className="section-subtitle fade-up" style={{"transitionDelay":"0.1s"}}>Technologies and tools I use to bring ideas to life.</p>
 
@@ -107,39 +202,6 @@ const About = () => {
                     <div className={`${styles['skill-icon']}`}><i className="fas fa-database"></i></div>
                     <div className={`${styles['skill-name']}`}>SQL/NoSQL</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    
-    <section className="section">
-        <div className="container">
-            <h2 className="section-title fade-up">My <span style={{"color":"var(--accent-color)"}}>Story & Struggles</span></h2>
-            <p className="section-subtitle fade-up" style={{"transitionDelay":"0.1s"}}>The journey wasn't always easy. Here is the unvarnished path of my struggles and breakthroughs.</p>
-
-            <div className={`${styles['horizontal-timeline']} fade-up`} style={{"transitionDelay":"0.2s"}}>
-                {storyData.map((story, index) => (
-                    <div key={index} className={`${styles['ht-item']}`}>
-                        <div className={`${styles['ht-dot']}`}></div>
-                        <div className={`${styles['ht-content']} interactive-element`}>
-                            <span className={`${styles['ht-date']}`}>{story.period}</span>
-                            <h4 className={styles['ht-title']}>{story.title}</h4>
-                            <h5 className={styles['ht-subtitle']}>{story.subtitle}</h5>
-                            
-                            <div className={`${styles['ht-details']}`}>
-                                <p style={{"color":"var(--text-secondary)", "marginBottom":"1rem"}}>{story.summary}</p>
-                                <div className={styles['struggle-box']}>
-                                    <h6><i className="fas fa-bolt"></i> The Struggle</h6>
-                                    <p>{story.struggle}</p>
-                                </div>
-                                <div className={styles['breakthrough-box']}>
-                                    <h6><i className="fas fa-star"></i> The Breakthrough</h6>
-                                    <p>{story.breakthrough}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                ))}
             </div>
         </div>
     </section>
