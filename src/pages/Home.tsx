@@ -110,7 +110,7 @@ const Home = () => {
 
             <div className={`${styles['project-wrapper']} fade-up`} style={{"transitionDelay":"0.2s"}}>
                 
-                <div className={`${styles['project-card']} interactive-element`}>
+                <div className={`${styles['project-card']} fade-up interactive-element`} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')", transitionDelay: "0.2s" }}>
                     <div className={`${styles['project-details']}`}>
                         <span className={`${styles.tag}`}>AI / ML</span>
                         <h3 className={`${styles['project-title']}`}>Fake News Detector</h3>
@@ -123,7 +123,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className={`${styles['project-card']} interactive-element`}>
+                <div className={`${styles['project-card']} fade-up interactive-element`} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')", transitionDelay: "0.3s" }}>
                     <div className={`${styles['project-details']}`}>
                         <span className={`${styles.tag}`}>WordPress</span>
                         <h3 className={`${styles['project-title']}`}>Markencia Agency</h3>
@@ -136,7 +136,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className={`${styles['project-card']} interactive-element`}>
+                <div className={`${styles['project-card']} fade-up interactive-element`} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')", transitionDelay: "0.4s" }}>
                     <div className={`${styles['project-details']}`}>
                         <span className={`${styles.tag}`}>React Native</span>
                         <h3 className={`${styles['project-title']}`}>E-Commerce App</h3>

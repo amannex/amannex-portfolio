@@ -105,7 +105,7 @@ const Portfolio = () => {
         <div className="container fade-up">
             <span className="hero-badge"><i className="fas fa-briefcase" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Portfolio</span>
             <h1 className="page-title">My <span className="gradient-text">Work</span></h1>
-            <p className="section-subtitle" style={{"marginBottom":"0"}}>Discover a curated collection of my latest projects and case studies.</p>
+            <p className="section-subtitle" style={{"marginBottom":"0"}}>Explore a curated collection of projects and case studies delivering tailored user experiences through strategic research. </p>
         </div>
     </header>
 

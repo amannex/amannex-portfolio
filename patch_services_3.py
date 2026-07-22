@@ -1,81 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import SEO from '../components/SEO';
-import styles from './Services.module.css';
+import sys
+import re
 
-const Services = () => {
-    const [forcedState, setForcedState] = useState<Record<number, 'open' | 'closed' | undefined>>({});
+with open('src/pages/Services.tsx', 'r') as f:
+    tsx_content = f.read()
 
-    const handleMouseEnter = (index: number) => {
-        setForcedState(prev => {
-            if (prev[index] === 'open') return prev;
-            return {
-                ...prev,
-                [index]: 'open'
-            };
-        });
-    };
-
-    const handleCardClick = (index: number) => {
-        setForcedState(prev => ({
-            ...prev,
-            [index]: prev[index] === 'open' ? 'closed' : 'open'
-        }));
-    };
-
-    return (
-        <>
-            <SEO 
-                title="What I Do"
-                description="Professional services including Full Stack Development, UI/UX Design, WordPress Solutions, and AI Integrations by Aman Saifi."
-                canonicalUrl="https://amannex.me/services"
-            />
-    <header className="page-header">
-        <div className="container fade-up">
-            <span className="hero-badge"><i className="fas fa-star" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Expertise & Offerings</span>
-            <h1 className="page-title">What <span className="gradient-text">I Do</span></h1>
-            <p className="section-subtitle" style={{"marginBottom":"0"}}>Comprehensive suite of technical and design services tailored for modern digital experiences.</p>
-        </div>
-    </header>
-
-    
-    <section className="section section-alt">
-        <div className="container">
-            
-        <div className={`${styles['services-grid']}`}>
+new_tsx = '''            <div className={`${styles['services-grid']}`}>
                 
-                <div className={`${styles['service-card']} ${forcedState[0] === 'open' ? styles['force-open'] : ''} ${forcedState[0] ? 'fade-up visible' : 'fade-up'}`} onMouseEnter={() => handleMouseEnter(0)} onClick={() => handleCardClick(0)}>
-                    <h3 className={`${styles['service-title']}`}>Any CMS to WordPress Migration</h3>
-                    <div className={`${styles['service-card-grid']}`}>
-                        <div className={`${styles['service-content']}`}>
-                            <div className={`${styles['service-body']}`}>
-                                <div className={`${styles['service-body-inner']}`}>
-                                    <p>Seamlessly migrate your existing website to WordPress from any CMS (Wix, Squarespace, Webflow, Shopify, or Custom HTML). I ensure zero data loss, perfect SEO preservation, and a smooth transition to a more powerful platform.</p>
-                                    
-                                    <div className={`${styles['service-features']}`}>
-                                        <div className={`${styles['service-feature']}`}><i className="fas fa-check"></i> SEO Preservation</div>
-                                        <div className={`${styles['service-feature']}`}><i className="fas fa-check"></i> Zero Data Loss</div>
-                                        <div className={`${styles['service-feature']}`}><i className="fas fa-check"></i> Content Mapping</div>
-                                        <div className={`${styles['service-feature']}`}><i className="fas fa-check"></i> URL Redirection</div>
-                                    </div>
-                                    
-                                    <div><Link to="/contact" className="btn btn-outline interactive-element">Start a Project <i className="fas fa-arrow-right"></i></Link></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={`${styles['service-visual-container']}`}>
-                            <div className={`${styles['service-body']}`}>
-                                <div className={`${styles['service-body-inner']}`}>
-                                    <div className={`${styles['service-visual']}`}>
-                                        <i className="fas fa-server"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={`${styles['service-card']} ${forcedState[1] === 'open' ? styles['force-open'] : ''} ${forcedState[1] ? 'fade-up visible' : 'fade-up'}`} onMouseEnter={() => handleMouseEnter(1)} onClick={() => handleCardClick(1)}>
+                <div className={`${styles['service-card']} fade-up`}>
                     <h3 className={`${styles['service-title']}`}>Full Stack Development</h3>
                     <div className={`${styles['service-card-grid']}`}>
                         <div className={`${styles['service-content']}`}>
@@ -98,7 +29,7 @@ const Services = () => {
                             <div className={`${styles['service-body']}`}>
                                 <div className={`${styles['service-body-inner']}`}>
                                     <div className={`${styles['service-visual']}`}>
-                                        <i className="fas fa-laptop-code"></i>
+                                        <i className="fas fa-layer-group"></i>
                                     </div>
                                 </div>
                             </div>
@@ -106,8 +37,8 @@ const Services = () => {
                     </div>
                 </div>
 
-                <div className={`${styles['service-card']} ${forcedState[2] === 'open' ? styles['force-open'] : ''} ${forcedState[2] ? 'fade-up visible' : 'fade-up'}`} onMouseEnter={() => handleMouseEnter(2)} onClick={() => handleCardClick(2)}>
-                    <h3 className={`${styles['service-title']}`}>WordPress Development</h3>
+                <div className={`${styles['service-card']} fade-up`}>
+                    <h3 className={`${styles['service-title']}`}>WordPress Ecosystem</h3>
                     <div className={`${styles['service-card-grid']}`}>
                         <div className={`${styles['service-content']}`}>
                             <div className={`${styles['service-body']}`}>
@@ -129,7 +60,7 @@ const Services = () => {
                             <div className={`${styles['service-body']}`}>
                                 <div className={`${styles['service-body-inner']}`}>
                                     <div className={`${styles['service-visual']}`}>
-                                        <i className="fas fa-paint-roller"></i>
+                                        <i className="fab fa-wordpress"></i>
                                     </div>
                                 </div>
                             </div>
@@ -137,7 +68,7 @@ const Services = () => {
                     </div>
                 </div>
 
-                <div className={`${styles['service-card']} ${forcedState[3] === 'open' ? styles['force-open'] : ''} ${forcedState[3] ? 'fade-up visible' : 'fade-up'}`} onMouseEnter={() => handleMouseEnter(3)} onClick={() => handleCardClick(3)}>
+                <div className={`${styles['service-card']} fade-up`}>
                     <h3 className={`${styles['service-title']}`}>AI & ML Integrations</h3>
                     <div className={`${styles['service-card-grid']}`}>
                         <div className={`${styles['service-content']}`}>
@@ -160,7 +91,7 @@ const Services = () => {
                             <div className={`${styles['service-body']}`}>
                                 <div className={`${styles['service-body-inner']}`}>
                                     <div className={`${styles['service-visual']}`}>
-                                        <i className="fas fa-network-wired"></i>
+                                        <i className="fas fa-brain"></i>
                                     </div>
                                 </div>
                             </div>
@@ -168,7 +99,7 @@ const Services = () => {
                     </div>
                 </div>
 
-                <div className={`${styles['service-card']} ${forcedState[4] === 'open' ? styles['force-open'] : ''} ${forcedState[4] ? 'fade-up visible' : 'fade-up'}`} onMouseEnter={() => handleMouseEnter(4)} onClick={() => handleCardClick(4)}>
+                <div className={`${styles['service-card']} fade-up`}>
                     <h3 className={`${styles['service-title']}`}>UI/UX Design</h3>
                     <div className={`${styles['service-card-grid']}`}>
                         <div className={`${styles['service-content']}`}>
@@ -191,7 +122,7 @@ const Services = () => {
                             <div className={`${styles['service-body']}`}>
                                 <div className={`${styles['service-body-inner']}`}>
                                     <div className={`${styles['service-visual']}`}>
-                                        <i className="fas fa-drafting-compass"></i>
+                                        <i className="fas fa-pen-nib"></i>
                                     </div>
                                 </div>
                             </div>
@@ -199,21 +130,10 @@ const Services = () => {
                     </div>
                 </div>
 
-            </div>
-        </div>
+            </div>'''
 
-        <div className="container" style={{padding: '5rem 0' }}>
-            <div className={`${styles['cta-section']} fade-up`}>
-                <h2>Ready to Transform Your Idea?</h2>
-                <p>Let's collaborate to build exceptional. I am currently open for freelance projects and Full-time opportunities.</p>
-                <Link to="/contact" className="btn btn-outline interactive-element">Get In Touch Today</Link>
-            </div>
-        </div>
-    </section>
+tsx_content = re.sub(r'<div className={`\$\{styles\[\'services-grid\'\]\}`\}>.*?</div>\s*</div>\s*</section>', new_tsx + '\n        </div>\n    </section>', tsx_content, flags=re.MULTILINE|re.DOTALL)
 
-    
-        </>
-    );
-};
+with open('src/pages/Services.tsx', 'w') as f:
+    f.write(tsx_content)
 
-export default Services;
