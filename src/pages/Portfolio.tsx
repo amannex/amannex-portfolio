@@ -1,10 +1,87 @@
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import SEO from '../components/SEO';
 import styles from './Portfolio.module.css';
 
 const Portfolio = () => {
     const sliderRef = useRef<HTMLDivElement>(null);
+    const [activeFilter, setActiveFilter] = useState('all');
+
+    useEffect(() => {
+        const elements = document.querySelectorAll(`.${styles['portfolio-grid']} .fade-up`);
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        elements.forEach(el => {
+            el.classList.remove('visible'); // Reset visibility for animation
+            observer.observe(el);
+        });
+        
+        return () => observer.disconnect();
+    }, [activeFilter]);
+
+    const projects = [
+        {
+            id: 1,
+            category: 'ai-ml',
+            tag: 'AI / ML',
+            title: 'Fake News Detector',
+            desc: 'An advanced text-classification system built using Python and deep learning models (BiLSTM) to accurately identify and filter out misleading news articles.',
+            img: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=800",
+            delay: "0.2s"
+        },
+        {
+            id: 2,
+            category: 'wordpress',
+            tag: 'WordPress',
+            title: 'Markencia Agency',
+            desc: 'A premium, high-conversion Marketing Agency website built exclusively on WordPress utilizing sophisticated layouts, custom post types, and dynamic filtering.',
+            img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
+            delay: "0.3s"
+        },
+        {
+            id: 3,
+            category: 'fullstack',
+            tag: 'Full Stack',
+            title: 'E-Commerce Architecture',
+            desc: 'A robust online shopping platform developed with Java/Spring Boot backend, secure authentication, and a responsive React JS frontend.',
+            img: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&q=80&w=800",
+            delay: "0.4s"
+        },
+        {
+            id: 4,
+            category: 'design',
+            tag: 'Web Design',
+            title: 'SaaS Dashboard UI',
+            desc: 'A highly interactive, data-rich analytics dashboard focusing on user experience, modern glassmorphism aesthetics, and data visualization best practices.',
+            img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+            delay: "0.5s"
+        },
+        {
+            id: 5,
+            category: 'ai-ml',
+            tag: 'AI / ML',
+            title: 'Customer Support Bot',
+            desc: 'Integrated natural language processing to build an intelligent conversational bot capable of resolving up to 70% of common customer tier-1 queries seamlessly.',
+            img: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80&w=800",
+            delay: "0.6s"
+        },
+        {
+            id: 6,
+            category: 'wordpress',
+            tag: 'WordPress',
+            title: 'Tech Journal Blog',
+            desc: 'Developed a highly optimized, SEO-friendly custom WordPress theme for a prominent tech publication, featuring lightning-fast load times and advanced monetization spots.',
+            img: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800",
+            delay: "0.7s"
+        }
+    ];
 
     const scrollSlider = (direction: 'left' | 'right') => {
         if (sliderRef.current) {
@@ -128,88 +205,27 @@ const Portfolio = () => {
                 Search by <span style={{ color: 'var(--accent-color)' }}>Filter</span>
             </h2>
             <div className={`${styles['filter-container']} fade-up`} style={{"transitionDelay":"0.1s"}}>
-                <button className={`${styles['filter-btn']} active interactive-element`} data-filter="all">All Projects</button>
-                <button className={`${styles['filter-btn']} interactive-element`} data-filter="ai-ml">AI / ML</button>
-                <button className={`${styles['filter-btn']} interactive-element`} data-filter="fullstack">Full Stack</button>
-                <button className={`${styles['filter-btn']} interactive-element`} data-filter="wordpress">WordPress</button>
-                <button className={`${styles['filter-btn']} interactive-element`} data-filter="design">Web Design</button>
+                <button className={`${styles['filter-btn']} ${activeFilter === 'all' ? styles.active : ''} interactive-element`} onClick={() => setActiveFilter('all')}>All Projects</button>
+                <button className={`${styles['filter-btn']} ${activeFilter === 'ai-ml' ? styles.active : ''} interactive-element`} onClick={() => setActiveFilter('ai-ml')}>AI / ML</button>
+                <button className={`${styles['filter-btn']} ${activeFilter === 'fullstack' ? styles.active : ''} interactive-element`} onClick={() => setActiveFilter('fullstack')}>Full Stack</button>
+                <button className={`${styles['filter-btn']} ${activeFilter === 'wordpress' ? styles.active : ''} interactive-element`} onClick={() => setActiveFilter('wordpress')}>WordPress</button>
+                <button className={`${styles['filter-btn']} ${activeFilter === 'design' ? styles.active : ''} interactive-element`} onClick={() => setActiveFilter('design')}>Web Design</button>
             </div>
 
             
             <div className={`${styles['portfolio-grid']}`}>
-                
-                {/* Grid Project 1 */}
-                <div className={`${styles['project-card']} fade-up interactive-element`} data-category="ai-ml" style={{"transitionDelay":"0.2s", backgroundImage: `url('https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=800')`}}>
-                    <div className={`${styles['project-details']}`}>
-                        <span className={`${styles.tag}`}>AI / ML</span>
-                        <h3 className={`${styles['project-title']}`}>Fake News Detector</h3>
-                        <div className={`${styles['project-content']}`}>
-                            <p className={`${styles['project-desc']}`}>An advanced text-classification system built using Python and deep learning models (BiLSTM) to accurately identify and filter out misleading news articles.</p>
-                            <a href="#" className={`${styles['project-link']}`}>View Case Study <i className="fas fa-arrow-up-right-from-square"></i></a>
+                {projects.filter(p => activeFilter === 'all' || p.category === activeFilter).map(project => (
+                    <div key={project.id} className={`${styles['project-card']} fade-up interactive-element`} data-category={project.category} style={{"transitionDelay": project.delay, backgroundImage: `url('${project.img}')`}}>
+                        <div className={`${styles['project-details']}`}>
+                            <span className={`${styles.tag}`}>{project.tag}</span>
+                            <h3 className={`${styles['project-title']}`}>{project.title}</h3>
+                            <div className={`${styles['project-content']}`}>
+                                <p className={`${styles['project-desc']}`}>{project.desc}</p>
+                                <a href="#" className={`${styles['project-link']}`}>View Case Study <i className="fas fa-arrow-up-right-from-square"></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                {/* Grid Project 2 */}
-                <div className={`${styles['project-card']} fade-up interactive-element`} data-category="wordpress" style={{"transitionDelay":"0.3s", backgroundImage: `url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800')`}}>
-                    <div className={`${styles['project-details']}`}>
-                        <span className={`${styles.tag}`}>WordPress</span>
-                        <h3 className={`${styles['project-title']}`}>Markencia Agency</h3>
-                        <div className={`${styles['project-content']}`}>
-                            <p className={`${styles['project-desc']}`}>A premium, high-conversion Marketing Agency website built exclusively on WordPress utilizing sophisticated layouts, custom post types, and dynamic filtering.</p>
-                            <a href="#" className={`${styles['project-link']}`}>View Case Study <i className="fas fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Grid Project 3 */}
-                <div className={`${styles['project-card']} fade-up interactive-element`} data-category="fullstack" style={{"transitionDelay":"0.4s", backgroundImage: `url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&q=80&w=800')`}}>
-                    <div className={`${styles['project-details']}`}>
-                        <span className={`${styles.tag}`}>Full Stack</span>
-                        <h3 className={`${styles['project-title']}`}>E-Commerce Architecture</h3>
-                        <div className={`${styles['project-content']}`}>
-                            <p className={`${styles['project-desc']}`}>A robust online shopping platform developed with Java/Spring Boot backend, secure authentication, and a responsive React JS frontend.</p>
-                            <a href="#" className={`${styles['project-link']}`}>View Case Study <i className="fas fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Grid Project 4 */}
-                <div className={`${styles['project-card']} fade-up interactive-element`} data-category="design" style={{"transitionDelay":"0.5s", backgroundImage: `url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800')`}}>
-                    <div className={`${styles['project-details']}`}>
-                        <span className={`${styles.tag}`}>Web Design</span>
-                        <h3 className={`${styles['project-title']}`}>SaaS Dashboard UI</h3>
-                        <div className={`${styles['project-content']}`}>
-                            <p className={`${styles['project-desc']}`}>A highly interactive, data-rich analytics dashboard focusing on user experience, modern glassmorphism aesthetics, and data visualization best practices.</p>
-                            <a href="#" className={`${styles['project-link']}`}>View Case Study <i className="fas fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Grid Project 5 */}
-                <div className={`${styles['project-card']} fade-up interactive-element`} data-category="ai-ml" style={{"transitionDelay":"0.6s", backgroundImage: `url('https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&q=80&w=800')`}}>
-                    <div className={`${styles['project-details']}`}>
-                        <span className={`${styles.tag}`}>AI / ML</span>
-                        <h3 className={`${styles['project-title']}`}>Customer Support Bot</h3>
-                        <div className={`${styles['project-content']}`}>
-                            <p className={`${styles['project-desc']}`}>Integrated natural language processing to build an intelligent conversational bot capable of resolving up to 70% of common customer tier-1 queries seamlessly.</p>
-                            <a href="#" className={`${styles['project-link']}`}>View Case Study <i className="fas fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Grid Project 6 */}
-                <div className={`${styles['project-card']} fade-up interactive-element`} data-category="wordpress" style={{"transitionDelay":"0.7s", backgroundImage: `url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800')`}}>
-                    <div className={`${styles['project-details']}`}>
-                        <span className={`${styles.tag}`}>WordPress</span>
-                        <h3 className={`${styles['project-title']}`}>Tech Journal Blog</h3>
-                        <div className={`${styles['project-content']}`}>
-                            <p className={`${styles['project-desc']}`}>Developed a highly optimized, SEO-friendly custom WordPress theme for a prominent tech publication, featuring lightning-fast load times and advanced monetization spots.</p>
-                            <a href="#" className={`${styles['project-link']}`}>View Case Study <i className="fas fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                    </div>
-                </div>
-
+                ))}
             </div>
             
 
