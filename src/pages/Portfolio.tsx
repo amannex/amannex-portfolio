@@ -15,13 +15,13 @@ const Portfolio = () => {
     <header className="page-header">
         <div className="container fade-up">
             <span className="hero-badge"><i className="fas fa-briefcase" style={{"fontSize":"0.75rem","marginRight":"0.5rem","verticalAlign":"middle","color":"var(--accent-color)"}}></i> Portfolio</span>
-            <h1 className="page-title">Our <span className="gradient-text">Work</span></h1>
+            <h1 className="page-title">My <span className="gradient-text">Work</span></h1>
             <p className="section-subtitle" style={{"marginBottom":"0"}}>Explore a collection of recent projects spanning AI/ML, Full Stack Web Development, and Custom WordPress Solutions. I transform complex ideas into intuitive, scalable experiences.</p>
         </div>
     </header>
 
     
-    <section className="section">
+    <section className="section section-alt">
         <div className="container">
             
             <div className={`${styles['filter-container']} fade-up`} style={{"transitionDelay":"0.1s"}}>

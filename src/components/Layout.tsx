@@ -45,10 +45,12 @@ const Layout = () => {
 
     return (
         <>
-            <Navbar />
-            <main>
-                <Outlet />
-            </main>
+            <div className="content-wrapper">
+                <Navbar />
+                <main>
+                    <Outlet />
+                </main>
+            </div>
             <Footer />
         </>
     );

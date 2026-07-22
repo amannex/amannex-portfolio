@@ -20,7 +20,7 @@ const Services = () => {
     </header>
 
     
-    <section className="section" style={{"paddingTop":"0"}}>
+    <section className="section section-alt">
         <div className="container">
             
             <div className={`${styles['services-grid']}`}>
