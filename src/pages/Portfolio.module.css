@@ -34,6 +34,26 @@
             transform: translateY(-2px);
         }
 
+        .filter-dropdown {
+            display: none;
+            width: 100%;
+            max-width: 300px;
+            padding: 0.8rem 2.5rem 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid var(--accent-color);
+            background: var(--bg-primary) url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffb400' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right 1rem center;
+            background-size: 1.2em;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            box-shadow: 0 4px 15px rgba(255, 180, 0, 0.1);
+            margin: 0 auto;
+        }
+
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -329,21 +349,48 @@
         }
 
         @media (max-width: 768px) {
-            
-            
-            
-            
-            
-
-            
-            
             .section {
                 padding: 60px 0;
+            }
+            
+            .featured-title {
+                font-size: 1.5rem;
             }
             
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
 
+            .filter-btn {
+                display: none;
+            }
             
+            .filter-dropdown {
+                display: block;
+            }
+            
+            .project-details {
+                padding: 1.5rem;
+            }
+            
+            .project-content {
+                max-height: 300px;
+                opacity: 1;
+                margin-top: 1rem;
+            }
+            
+            .project-card::before {
+                background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.7) 50%, rgba(10, 10, 10, 0.2) 100%);
+            }
+            
+            .featured-slider {
+                gap: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .project-card {
+                flex: 0 0 85%;
+                min-width: 260px;
+                min-height: 350px;
+            }
         }

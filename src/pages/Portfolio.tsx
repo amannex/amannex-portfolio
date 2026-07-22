@@ -210,6 +210,18 @@ const Portfolio = () => {
                 <button className={`${styles['filter-btn']} ${activeFilter === 'fullstack' ? styles.active : ''} interactive-element`} onClick={() => setActiveFilter('fullstack')}>Full Stack</button>
                 <button className={`${styles['filter-btn']} ${activeFilter === 'wordpress' ? styles.active : ''} interactive-element`} onClick={() => setActiveFilter('wordpress')}>WordPress</button>
                 <button className={`${styles['filter-btn']} ${activeFilter === 'design' ? styles.active : ''} interactive-element`} onClick={() => setActiveFilter('design')}>Web Design</button>
+
+                <select 
+                    className={styles['filter-dropdown']}
+                    value={activeFilter}
+                    onChange={(e) => setActiveFilter(e.target.value)}
+                >
+                    <option value="all">All Projects</option>
+                    <option value="ai-ml">AI / ML</option>
+                    <option value="fullstack">Full Stack</option>
+                    <option value="wordpress">WordPress</option>
+                    <option value="design">Web Design</option>
+                </select>
             </div>
 
             
