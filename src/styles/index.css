@@ -115,6 +115,16 @@ img {
     background-color: var(--bg-secondary);
 }
 
+.section-grid {
+    background-color: var(--bg-primary);
+    background-image: 
+        radial-gradient(ellipse at center, transparent 0%, var(--bg-primary) 80%),
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-position: center, center, center;
+}
+
 /* Typography Utilities */
 .gradient-text {
     background: var(--accent-gradient);

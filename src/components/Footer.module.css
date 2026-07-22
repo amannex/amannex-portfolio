@@ -1,11 +1,12 @@
 .footer {
-    background: var(--bg-primary); /* or --bg-secondary depending on theme preference */
+    background: #f4f4f5; /* off-white */
+    color: #1a1a1a; /* dark text for contrast */
     padding: 6rem 0 4rem;
     position: sticky;
     bottom: 0;
     z-index: 0;
     overflow: hidden;
-    border-top: 1px solid var(--border-light);
+    border-top: 1px solid rgba(0,0,0,0.1);
     scroll-snap-align: end;
 }
 
@@ -36,7 +37,7 @@
 .backToTop {
     background: transparent;
     border: none;
-    color: var(--text-primary);
+    color: #1a1a1a;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -54,8 +55,8 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-light);
+    background: #e5e5e5;
+    border: 1px solid rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,8 +94,8 @@
     line-height: 1;
     margin: 0;
     text-transform: uppercase;
-    color: var(--text-muted); /* Faded look as in screenshot */
-    opacity: 0.3;
+    color: #000000;
+    opacity: 0.1;
     transition: opacity var(--transition-smooth);
     cursor: pointer;
     position: relative;
@@ -122,8 +123,8 @@
 .socialBtn {
     padding: 0.8rem 2.5rem;
     border-radius: 50px;
-    border: 1px solid var(--border-light);
-    color: var(--text-primary);
+    border: 1px solid rgba(0,0,0,0.2);
+    color: #1a1a1a;
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -141,7 +142,7 @@
 .credits {
     text-align: right;
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: #666666;
 }
 
 .credits p {
@@ -149,7 +150,7 @@
 }
 
 .credits strong {
-    color: var(--text-primary);
+    color: #1a1a1a;
     font-weight: 600;
 }
 
