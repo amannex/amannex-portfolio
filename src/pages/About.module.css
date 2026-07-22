@@ -59,7 +59,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 500px; /* give it some height */
+  min-height: 500px;
+  /* give it some height */
 }
 
 .candy-map {
@@ -67,7 +68,8 @@
   width: 100%;
   max-width: 350px;
   height: 100%;
-  min-height: 600px; /* enough space for items */
+  min-height: 600px;
+  /* enough space for items */
 }
 
 .candy-path {
@@ -164,6 +166,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -220,11 +223,9 @@
   overflow: hidden;
   height: 100%;
   /* Light Glassmorphism */
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.7) 0%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(255, 255, 255, 0.2) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
@@ -232,7 +233,8 @@
 }
 
 .struggle-box {
-  border-left: 4px solid var(--text-primary); /* Brand Black */
+  border-left: 4px solid var(--text-primary);
+  /* Brand Black */
 }
 
 .struggle-box h6 {
@@ -246,12 +248,15 @@
 }
 
 .breakthrough-box {
-  border-left: 4px solid var(--accent-color); /* Brand Yellow */
-  background: rgba(255, 180, 0, 0.08); /* Faint yellow tint */
+  border-left: 4px solid var(--accent-color);
+  /* Brand Yellow */
+  background: rgba(255, 180, 0, 0.08);
+  /* Faint yellow tint */
 }
 
 .breakthrough-box h6 {
-  color: #d49500; /* Darker yellow for legibility on light bg */
+  color: #d49500;
+  /* Darker yellow for legibility on light bg */
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 0.75rem;
@@ -277,7 +282,8 @@
   .candy-map {
     min-height: 450px;
     max-width: 300px;
-    margin: 0 auto; /* center it */
+    margin: 0 auto;
+    /* center it */
   }
 
   .detail-grid {
@@ -346,6 +352,7 @@
   .about-content {
     grid-template-columns: 1fr;
   }
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
