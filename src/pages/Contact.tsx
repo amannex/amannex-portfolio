@@ -1,8 +1,15 @@
+import { useState } from "react";
 import styles from "./Contact.module.css";
 import SEO from "../components/SEO";
 import { contactInfo, socialLinks, faqsData } from "../data/static";
 
 const Contact = () => {
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
+
   return (
     <>
       <SEO
@@ -347,8 +354,8 @@ const Contact = () => {
             Frequently Asked{" "}
             <span style={{ color: "var(--accent-color)" }}>Questions</span>
           </h2>
-          <p className="section-subtitle">
-            A few common questions I get asked regarding services and workflows.
+          <p className="section-subtitle" style={{ marginBottom: "3rem" }}>
+            Curious about how things work? Here are the questions I get asked most often regarding my services and workflows.
           </p>
 
           <div
@@ -366,7 +373,8 @@ const Contact = () => {
             {faqsData.map((faq, index) => (
               <div
                 key={index}
-                className={`${styles["faq-item"]} interactive-element`}
+                className={`${styles["faq-item"]} ${activeFaq === index ? styles.active : ""} interactive-element`}
+                onClick={() => toggleFaq(index)}
               >
                 <div className={`${styles["faq-question"]}`}>
                   <span>{faq.question}</span>

@@ -315,6 +315,26 @@ export const faqsData = [
     answer:
       "Everything starts with a discovery call to understand your goals. From there, I create wireframes and UI mockups. Once approved, I move into semantic, responsive HTML/CSS/JS development and integrate necessary backends or CMS solutions.",
   },
+  {
+    question: "What technologies and frameworks do you use?",
+    answer:
+      "I specialize in modern JavaScript/TypeScript ecosystems, primarily using React, Node.js, and Next.js for full-stack applications. For CMS-based projects, I am an expert in WordPress, PHP, and custom theme development. I also frequently use Tailwind CSS, Docker, and various AI integration APIs.",
+  },
+  {
+    question: "Do you work with international clients?",
+    answer:
+      "Absolutely! I have collaborated with clients and agencies from all over the world. We manage time zone differences through asynchronous communication, clear project management tools, and scheduled check-ins that work for both parties.",
+  },
+  {
+    question: "Can you redesign or upgrade an existing website?",
+    answer:
+      "Yes, a significant portion of my work involves auditing existing digital products, improving their UI/UX design, and upgrading their underlying codebase for better performance, scalability, and modern aesthetic standards.",
+  },
+  {
+    question: "How do you handle project pricing and payments?",
+    answer:
+      "I generally offer project-based pricing rather than hourly rates, so you know exactly what the investment will be upfront. Payments are typically split into milestones, starting with an initial deposit to secure a spot in my schedule.",
+  },
 ];
 
 export const blogCategories = [
