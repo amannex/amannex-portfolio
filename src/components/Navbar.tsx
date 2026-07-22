@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { navLinks } from '../data/static';
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,11 +44,9 @@ const Navbar = () => {
                 </button>
 
                 <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
-                    <li><NavLink to="/" className="nav-link" onClick={closeMenu}>Home</NavLink></li>
-                    <li><NavLink to="/about" className="nav-link" onClick={closeMenu}>About</NavLink></li>
-                    <li><NavLink to="/services" className="nav-link" onClick={closeMenu}>What I Do</NavLink></li>
-                    <li><NavLink to="/portfolio" className="nav-link" onClick={closeMenu}>Portfolio</NavLink></li>
-                    <li><NavLink to="/blogs" className="nav-link" onClick={closeMenu}>Blogs</NavLink></li>
+                    {navLinks.map((link, index) => (
+                        <li key={index}><NavLink to={link.path} className="nav-link" onClick={closeMenu}>{link.name}</NavLink></li>
+                    ))}
                     <li className="mobile-only-btn"><Link to="/contact" className="btn btn-primary" onClick={closeMenu}>Let's Talk</Link></li>
                 </ul>
 

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import SEO from '../components/SEO';
 import styles from './Home.module.css';
 import profileImg from '../assets/images/amannex-profile.png';
+import { homeServices, homeFeaturedProjects } from '../data/static';
 
 const Home = () => {
 
@@ -79,25 +80,13 @@ const Home = () => {
             <p className="section-subtitle fade-up" style={{"transitionDelay":"0.1s"}}>Delivering high-quality software solutions and breathtaking digital designs for modern enterprises.</p>
             
             <div style={{"display":"grid","gridTemplateColumns":"repeat(auto-fit, minmax(300px, 1fr))","gap":"2rem","marginTop":"3rem"}}>
-                
-                <div className={`${styles['glass-card']} fade-up interactive-element`} style={{"transitionDelay":"0.2s"}}>
-                    <div className={`${styles['card-icon']}`}><i className="fas fa-layer-group"></i></div>
-                    <h3>Full Stack Development</h3>
-                    <p style={{"color":"var(--text-secondary)","marginTop":"1rem"}}>Building scalable backend architectures with Java/Spring Boot and dynamic front-end interfaces using modern frameworks.</p>
-                </div>
-
-                <div className={`${styles['glass-card']} fade-up interactive-element`} style={{"transitionDelay":"0.3s"}}>
-                    <div className={`${styles['card-icon']}`}><i className="fab fa-wordpress"></i></div>
-                    <h3>WordPress Elements</h3>
-                    <p style={{"color":"var(--text-secondary)","marginTop":"1rem"}}>Crafting custom, responsive WordPress themes and robust e-commerce architectures using tools like Elementor and Divi.</p>
-                </div>
-
-                <div className={`${styles['glass-card']} fade-up interactive-element`} style={{"transitionDelay":"0.4s"}}>
-                    <div className={`${styles['card-icon']}`}><i className="fas fa-brain"></i></div>
-                    <h3>AI & ML Integrations</h3>
-                    <p style={{"color":"var(--text-secondary)","marginTop":"1rem"}}>Integrating advanced machine learning models and intelligent automation to solve complex business challenges securely.</p>
-                </div>
-
+                {homeServices.map((service, index) => (
+                    <div key={index} className={`${styles['glass-card']} fade-up interactive-element`} style={{ transitionDelay: service.delay }}>
+                        <div className={`${styles['card-icon']}`}><i className={service.icon}></i></div>
+                        <h3>{service.title}</h3>
+                        <p style={{"color":"var(--text-secondary)","marginTop":"1rem"}}>{service.desc}</p>
+                    </div>
+                ))}
             </div>
         </div>
     </section>
@@ -109,46 +98,20 @@ const Home = () => {
             <p className="section-subtitle fade-up" style={{"transitionDelay":"0.1s"}}>A glimpse into my recent coding endeavors and deployed solutions.</p>
 
             <div className={`${styles['project-wrapper']} fade-up`} style={{"transitionDelay":"0.2s"}}>
-                
-                <div className={`${styles['project-card']} fade-up interactive-element`} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')", transitionDelay: "0.2s" }}>
-                    <div className={`${styles['project-details']}`}>
-                        <span className={`${styles.tag}`}>AI / ML</span>
-                        <h3 className={`${styles['project-title']}`}>Fake News Detector</h3>
-                        <div className={`${styles['project-content']}`}>
-                            <p className={`${styles['project-desc']}`}>
-                                An advanced text-classification system built using Python and deep learning models (BiLSTM) to accurately identify and filter out misleading news articles.
-                            </p>
-                            <Link to="/portfolio" className={`${styles['project-link']}`}>View Project <i className="fas fa-arrow-up-right-from-square"></i></Link>
+                {homeFeaturedProjects.map((project, index) => (
+                    <div key={index} className={`${styles['project-card']} fade-up interactive-element`} style={{ backgroundImage: `url('${project.img}')`, transitionDelay: project.delay }}>
+                        <div className={`${styles['project-details']}`}>
+                            <span className={`${styles.tag}`}>{project.tag}</span>
+                            <h3 className={`${styles['project-title']}`}>{project.title}</h3>
+                            <div className={`${styles['project-content']}`}>
+                                <p className={`${styles['project-desc']}`}>
+                                    {project.desc}
+                                </p>
+                                <Link to={project.link} className={`${styles['project-link']}`}>View Project <i className="fas fa-arrow-up-right-from-square"></i></Link>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div className={`${styles['project-card']} fade-up interactive-element`} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')", transitionDelay: "0.3s" }}>
-                    <div className={`${styles['project-details']}`}>
-                        <span className={`${styles.tag}`}>WordPress</span>
-                        <h3 className={`${styles['project-title']}`}>Markencia Agency</h3>
-                        <div className={`${styles['project-content']}`}>
-                            <p className={`${styles['project-desc']}`}>
-                                A premium, high-conversion Marketing Agency website built exclusively on WordPress utilizing sophisticated layouts and dynamic post filtering.
-                            </p>
-                            <Link to="/portfolio" className={`${styles['project-link']}`}>View Project <i className="fas fa-arrow-up-right-from-square"></i></Link>
-                        </div>
-                    </div>
-                </div>
-
-                <div className={`${styles['project-card']} fade-up interactive-element`} style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')", transitionDelay: "0.4s" }}>
-                    <div className={`${styles['project-details']}`}>
-                        <span className={`${styles.tag}`}>React Native</span>
-                        <h3 className={`${styles['project-title']}`}>E-Commerce App</h3>
-                        <div className={`${styles['project-content']}`}>
-                            <p className={`${styles['project-desc']}`}>
-                                A cross-platform mobile application providing seamless shopping experiences with secure payment gateway integration and real-time order tracking.
-                            </p>
-                            <Link to="/portfolio" className={`${styles['project-link']}`}>View Project <i className="fas fa-arrow-up-right-from-square"></i></Link>
-                        </div>
-                    </div>
-                </div>
-
+                ))}
             </div>
             
             <div style={{"textAlign":"center","marginTop":"4rem"}} className="fade-up">

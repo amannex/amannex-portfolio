@@ -10,31 +10,8 @@ import ReadingProgressBar from '../components/blog/ReadingProgressBar';
 import { useReadingTime } from '../hooks/useReadingTime';
 import { useScrollProgress } from '../hooks/useScrollProgress';
 import { useTableOfContents } from '../hooks/useTableOfContents';
+import { singlePostInfo, singlePostContent, singlePostFaqs } from '../data/static';
 
-const postInfo = {
-  title: "The Future of Frontend: Micro-Frontends with Module Federation",
-  category: "Architecture",
-  author: "Aman Saifi",
-  date: "April 15, 2026",
-  featuredImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
-};
-
-const rawContentForTime = `As applications grow in complexity, the traditional monolithic frontend architecture begins to show its cracks. Build times slow to a crawl, team autonomy vanishes, and deploying a simple text change requires shipping the entire application. Enter Micro-Frontends. What are Micro-Frontends? Micro-frontends are the frontend equivalent of microservices. They allow multiple independent teams to build, test, and deploy pieces of a user interface independently, which are then assembled into a single cohesive application. The Problem with Monoliths In a monolithic frontend: Codebase Size: The repository becomes massive and intimidating for new developers. Deployment Bottlenecks: A bug in the marketing sidebar can block the deployment of the critical checkout flow. Framework Lock-in: Upgrading from React 17 to React 18 requires upgrading the entire application at once, which is often a multi-month refactoring nightmare. "Micro-frontends are not a silver bullet, but they are the most effective way to scale UI development across multiple independent teams." How Module Federation Changes the Game Historically, implementing micro-frontends was hard. You had to rely on iframes (poor UX), Nginx routing (hard to share state), or single-spa (complex configuration). Then Webpack 5 introduced Module Federation. Module Federation allows a JavaScript application to dynamically load code from another application — at runtime. Both applications can share dependencies, so if App A and App B both use react@18, it is only downloaded once by the user. A Simple Webpack Configuration Here is an example of how you expose a component from a remote application using Module Federation: In your host application, you can now consume this button as if it were a local import, but its code is loaded over the network only when it is needed. This fundamentally changes how we think about code splitting and application delivery. When Should You Use Micro-Frontends? It's important to remember that micro-frontends add complexity. You should only adopt them if: You have multiple distinct teams (e.g., 20+ frontend developers). Different teams need to deploy independently without coordinating release cycles. You have distinct domains within your application (e.g., a Dashboard, a Billing Portal, and a User Settings panel). If you're building a simple marketing site or a small startup MVP, stick to the monolith! The overhead of managing distributed architecture is not worth it until scale demands it. Conclusion Module Federation has democratized micro-frontend architecture, making it accessible to any team using Webpack. As we move towards more modular and scalable systems, understanding these architectural patterns will be crucial for senior frontend engineers. Have you implemented micro-frontends in your organization? Let me know your thoughts and challenges!`;
-
-const faqs = [
-    {
-        question: "What is a Micro-Frontend?",
-        answer: "A micro-frontend is an architectural style where independently deliverable frontend applications are composed into a greater whole, allowing independent teams to build, test, and deploy pieces of a UI."
-    },
-    {
-        question: "How does Module Federation work?",
-        answer: "Module Federation is a Webpack 5 feature that allows a JavaScript application to dynamically load code from another application at runtime, sharing dependencies to avoid downloading them multiple times."
-    },
-    {
-        question: "Is it suitable for small projects?",
-        answer: "Generally, no. Micro-frontends add complexity and are best suited for large-scale applications with multiple autonomous teams. For simple marketing sites or small MVPs, a monolith is often more effective."
-    }
-];
 
 const SinglePost = () => {
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -43,7 +20,7 @@ const SinglePost = () => {
     };
     const contentRef = useRef<HTMLElement>(null);
     const scrollProgress = useScrollProgress();
-    const { text: readingTime } = useReadingTime(rawContentForTime);
+    const { text: readingTime } = useReadingTime(singlePostContent);
     const { headings, activeId, scrollToHeading } = useTableOfContents({ 
         containerRef: contentRef,
         ignoreSelector: `.${styles.inPostCta}, .${styles.authorBox}, .${styles.commentsSection}`
@@ -59,7 +36,7 @@ const SinglePost = () => {
             />
             <div className={styles.articleSection}>
             <ReadingProgressBar progress={scrollProgress} />
-            <PostHero post={postInfo} readingTime={readingTime} />
+            <PostHero post={singlePostInfo} readingTime={readingTime} />
 
             <section style={{ paddingTop: '0.5rem' }}>
                 <div className="container" style={{ maxWidth: '1350px', margin: '0 auto', padding: '0 2rem' }}>
@@ -146,7 +123,7 @@ module.exports = {
                                 <div className={styles.faqSection}>
                                     <h2>Frequently Asked Questions</h2>
                                     <div className={styles.accordion}>
-                                        {faqs.map((faq, index) => (
+                                        {singlePostFaqs.map((faq, index) => (
                                             <div 
                                                 key={index} 
                                                 className={`${styles.accordionItem} ${activeFaq === index ? styles.active : ''}`}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
+import { footerSocials } from '../data/static';
 
 const Footer = () => {
     const scrollToTop = () => {
@@ -34,9 +35,9 @@ const Footer = () => {
                 {/* Bottom Row */}
                 <div className={`${styles.bottomRow} fade-up`} style={{transitionDelay: '0.2s'}}>
                     <div className={styles.socialButtons}>
-                        <a href="https://github.com/saifiaman" target="_blank" rel="noreferrer" className={styles.socialBtn}>GITHUB</a>
-                        <a href="https://www.linkedin.com/in/amannex/" target="_blank" rel="noreferrer" className={styles.socialBtn}>LINKEDIN</a>
-                        <a href="https://www.instagram.com/amannex_/" target="_blank" rel="noreferrer" className={styles.socialBtn}>TWITTER</a>
+                        {footerSocials.map((social, index) => (
+                            <a key={index} href={social.link} target="_blank" rel="noreferrer" className={styles.socialBtn}>{social.name}</a>
+                        ))}
                     </div>
                     
                     <div className={styles.credits}>

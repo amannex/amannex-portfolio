@@ -1,6 +1,6 @@
 import styles from './Contact.module.css';
 import SEO from '../components/SEO';
-
+import { contactInfo, socialLinks, faqsData } from '../data/static';
 
 const Contact = () => {
 
@@ -31,33 +31,23 @@ const Contact = () => {
                 </p>
                 
                 <div className={`${styles['info-items']}`} style={{"display":"flex","flexDirection":"column","gap":"1.5rem"}}>
-                    
-                    <div className={`${styles['info-item']}`} style={{"display":"flex","alignItems":"flex-start","gap":"1.5rem","padding":"1.5rem","background":"var(--bg-primary)","borderRadius":"var(--border-radius)","border":"1px solid var(--border-light)","boxShadow":"var(--shadow-sm)","transition":"all var(--transition-fast)"}}>
-                        <div className={`${styles['info-icon']}`} style={{"flexShrink":"0","width":"50px","height":"50px","borderRadius":"50%","background":"var(--accent-glow)","color":"var(--accent-secondary)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.25rem"}}><i className="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <h5 style={{"fontSize":"1.125rem","marginBottom":"0.25rem"}}>Location</h5>
-                            <p style={{"color":"var(--text-secondary)"}}>Remote / Global</p>
+                    {contactInfo.map((info, index) => (
+                        <div key={index} className={`${styles['info-item']}`} style={{"display":"flex","alignItems":"flex-start","gap":"1.5rem","padding":"1.5rem","background":"var(--bg-primary)","borderRadius":"var(--border-radius)","border":"1px solid var(--border-light)","boxShadow":"var(--shadow-sm)","transition":"all var(--transition-fast)"}}>
+                            <div className={`${styles['info-icon']}`} style={{"flexShrink":"0","width":"50px","height":"50px","borderRadius":"50%","background":"var(--accent-glow)","color":"var(--accent-secondary)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.25rem"}}><i className={info.icon}></i></div>
+                            <div>
+                                <h5 style={{"fontSize":"1.125rem","marginBottom":"0.25rem"}}>{info.title}</h5>
+                                <p style={{"color":"var(--text-secondary)"}}>{info.detail}</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    
-                    <div className={`${styles['info-item']}`} style={{"display":"flex","alignItems":"flex-start","gap":"1.5rem","padding":"1.5rem","background":"var(--bg-primary)","borderRadius":"var(--border-radius)","border":"1px solid var(--border-light)","boxShadow":"var(--shadow-sm)","transition":"all var(--transition-fast)"}}>
-                        <div className={`${styles['info-icon']}`} style={{"flexShrink":"0","width":"50px","height":"50px","borderRadius":"50%","background":"var(--accent-glow)","color":"var(--accent-secondary)","display":"flex","alignItems":"center","justifyContent":"center","fontSize":"1.25rem"}}><i className="fas fa-envelope"></i></div>
-                        <div>
-                            <h5 style={{"fontSize":"1.125rem","marginBottom":"0.25rem"}}>Email</h5>
-                            <p style={{"color":"var(--text-secondary)"}}>hello@amannex.me</p>
-                        </div>
-                    </div>
-                    
+                    ))}
                 </div>
                 
                 <div style={{"marginTop":"3rem"}}>
                     <h4 style={{"marginBottom":"1rem","fontSize":"1.25rem"}}>Connect on Social</h4>
                     <div style={{"display":"flex","gap":"1rem"}}>
-                        <a href="#" style={{"width":"40px","height":"40px","borderRadius":"50%","background":"var(--bg-secondary)","display":"flex","alignItems":"center","justifyContent":"center","color":"var(--text-secondary)","border":"1px solid var(--border-light)","transition":"all var(--transition-fast)"}} className="interactive-element"><i className="fab fa-twitter"></i></a>
-                        <a href="#" style={{"width":"40px","height":"40px","borderRadius":"50%","background":"var(--bg-secondary)","display":"flex","alignItems":"center","justifyContent":"center","color":"var(--text-secondary)","border":"1px solid var(--border-light)","transition":"all var(--transition-fast)"}} className="interactive-element"><i className="fab fa-github"></i></a>
-                        <a href="#" style={{"width":"40px","height":"40px","borderRadius":"50%","background":"var(--bg-secondary)","display":"flex","alignItems":"center","justifyContent":"center","color":"var(--text-secondary)","border":"1px solid var(--border-light)","transition":"all var(--transition-fast)"}} className="interactive-element"><i className="fab fa-linkedin-in"></i></a>
-                        <a href="#" style={{"width":"40px","height":"40px","borderRadius":"50%","background":"var(--bg-secondary)","display":"flex","alignItems":"center","justifyContent":"center","color":"var(--text-secondary)","border":"1px solid var(--border-light)","transition":"all var(--transition-fast)"}} className="interactive-element"><i className="fab fa-youtube"></i></a>
+                        {socialLinks.map((social, index) => (
+                            <a key={index} href={social.link} style={{"width":"40px","height":"40px","borderRadius":"50%","background":"var(--bg-secondary)","display":"flex","alignItems":"center","justifyContent":"center","color":"var(--text-secondary)","border":"1px solid var(--border-light)","transition":"all var(--transition-fast)"}} className="interactive-element"><i className={social.icon}></i></a>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -107,35 +97,17 @@ const Contact = () => {
             <p className="section-subtitle">A few common questions I get asked regarding services and workflows.</p>
 
             <div className={`${styles['faq-container']}`} style={{"maxWidth":"800px","margin":"0 auto","background":"var(--bg-primary)","borderRadius":"var(--border-radius-lg)","padding":"2rem","boxShadow":"var(--shadow-sm)","border":"1px solid var(--border-light)"}}>
-                <div className={`${styles['faq-item']} interactive-element`}>
-                    <div className={`${styles['faq-question']}`}>
-                        <span>What is your typical turnaround time?</span>
-                        <i className={`fas fa-chevron-down ${styles['faq-icon']}`}></i>
+                {faqsData.map((faq, index) => (
+                    <div key={index} className={`${styles['faq-item']} interactive-element`}>
+                        <div className={`${styles['faq-question']}`}>
+                            <span>{faq.question}</span>
+                            <i className={`fas fa-chevron-down ${styles['faq-icon']}`}></i>
+                        </div>
+                        <div className={`${styles['faq-answer']}`}>
+                            <p>{faq.answer}</p>
+                        </div>
                     </div>
-                    <div className={`${styles['faq-answer']}`}>
-                        <p>Turnaround time varies based on the scope and complexity of the project. A standard multi-page website usually takes around 2-3 weeks, while more complex web applications with AI integrations can take 1-2 months.</p>
-                    </div>
-                </div>
-
-                <div className={`${styles['faq-item']} interactive-element`}>
-                    <div className={`${styles['faq-question']}`}>
-                        <span>Do you provide ongoing support and maintenance?</span>
-                        <i className={`fas fa-chevron-down ${styles['faq-icon']}`}></i>
-                    </div>
-                    <div className={`${styles['faq-answer']}`}>
-                        <p>Yes! I offer dedicated maintenance packages to ensure your website remains secure, fast, and up-to-date with the latest features and plugin updates, particularly for WordPress platforms.</p>
-                    </div>
-                </div>
-
-                <div className={`${styles['faq-item']} interactive-element`}>
-                    <div className={`${styles['faq-question']}`}>
-                        <span>What is your design process?</span>
-                        <i className={`fas fa-chevron-down ${styles['faq-icon']}`}></i>
-                    </div>
-                    <div className={`${styles['faq-answer']}`}>
-                        <p>Everything starts with a discovery call to understand your goals. From there, I create wireframes and UI mockups. Once approved, I move into semantic, responsive HTML/CSS/JS development and integrate necessary backends or CMS solutions.</p>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     </section>
