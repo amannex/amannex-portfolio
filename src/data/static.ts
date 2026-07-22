@@ -301,7 +301,7 @@ export const blogPosts = [
     },
     {
         title: "My Developer Setup: Tools that 10x My Output",
-        category: "Productivity",
+        category: "Career & Productivity",
         date: "Feb 22, 2026",
         excerpt: "Take a look at the terminal setups, VS Code extensions, and daily workflows I use to stay focused and write high-quality code efficiently.",
         img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",

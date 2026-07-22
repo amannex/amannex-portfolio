@@ -1,9 +1,34 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import styles from './Blogs.module.css';
 import { blogCategories, featuredBlogPost, blogPosts } from '../data/static';
 
 const Blogs = () => {
+    const [activeCategory, setActiveCategory] = useState(blogCategories[0]);
+    
+    const filteredPosts = activeCategory === blogCategories[0] 
+        ? blogPosts 
+        : blogPosts.filter(post => post.category === activeCategory);
+
+    useEffect(() => {
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        setTimeout(() => {
+            const animatedElements = document.querySelectorAll('.fade-up');
+            animatedElements.forEach(el => observer.observe(el));
+        }, 100);
+
+        return () => observer.disconnect();
+    }, [activeCategory]);
 
     return (
         <>
@@ -32,33 +57,41 @@ const Blogs = () => {
             
             <div className={`${styles['blog-filters']} fade-up`}>
                 {blogCategories.map((cat, index) => (
-                    <button key={index} className={`${styles['filter-btn']} ${index === 0 ? 'active' : ''} interactive-element`}>{cat}</button>
+                    <button 
+                        key={index} 
+                        className={`${styles['filter-btn']} ${activeCategory === cat ? styles['active'] : ''} interactive-element`}
+                        onClick={() => setActiveCategory(cat)}
+                    >
+                        {cat}
+                    </button>
                 ))}
             </div>
 
             
-            <div className={`${styles['featured-post']} fade-up`}>
-                <Link to={featuredBlogPost.link} className={`${styles['featured-img-container']} interactive-element`}>
-                    <img src={featuredBlogPost.img} alt="Featured Blog Image" />
-                </Link>
-                <div className={`${styles['featured-content']}`}>
-                    <div className={`${styles['post-meta']}`}>
-                        <span className={`${styles['post-category']}`}>{featuredBlogPost.category}</span>
-                        <span><i className={`far fa-calendar-alt`}></i> {featuredBlogPost.date}</span>
-                        <span><i className={`far fa-clock`}></i> {featuredBlogPost.readTime}</span>
-                    </div>
-                    <Link to={featuredBlogPost.link} className="interactive-element">
-                        <h2 className={`${styles['post-title']}`}>{featuredBlogPost.title}</h2>
+            {(activeCategory === blogCategories[0] || featuredBlogPost.category === activeCategory) && (
+                <div className={`${styles['featured-post']} fade-up`}>
+                    <Link to={featuredBlogPost.link} className={`${styles['featured-img-container']} interactive-element`}>
+                        <img src={featuredBlogPost.img} alt="Featured Blog Image" />
                     </Link>
-                    <p className={`${styles['post-excerpt']}`}>{featuredBlogPost.excerpt}</p>
-                    <Link to={featuredBlogPost.link} className={`${styles['read-more']} interactive-element`}>Read Full Article <i className="fas fa-arrow-right"></i></Link>
+                    <div className={`${styles['featured-content']}`}>
+                        <div className={`${styles['post-meta']}`}>
+                            <span className={`${styles['post-category']}`}>{featuredBlogPost.category}</span>
+                            <span><i className={`far fa-calendar-alt`}></i> {featuredBlogPost.date}</span>
+                            <span><i className={`far fa-clock`}></i> {featuredBlogPost.readTime}</span>
+                        </div>
+                        <Link to={featuredBlogPost.link} className="interactive-element">
+                            <h2 className={`${styles['post-title']}`}>{featuredBlogPost.title}</h2>
+                        </Link>
+                        <p className={`${styles['post-excerpt']}`}>{featuredBlogPost.excerpt}</p>
+                        <Link to={featuredBlogPost.link} className={`${styles['read-more']} interactive-element`}>Read Full Article <i className="fas fa-arrow-right"></i></Link>
+                    </div>
                 </div>
-            </div>
+            )}
 
             
             <div className={`${styles['blog-grid']}`}>
-                {blogPosts.map((post, index) => (
-                    <article key={index} className={`${styles['blog-card']} fade-up`} style={{ transitionDelay: post.delay }}>
+                {filteredPosts.map((post, index) => (
+                    <article key={post.title} className={`${styles['blog-card']} fade-up`} style={{ transitionDelay: `${index * 0.1}s` }}>
                         <Link to={post.link} className={`${styles['blog-card-img']} interactive-element`}>
                             <img src={post.img} alt={post.title} />
                         </Link>
