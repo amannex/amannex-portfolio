@@ -99,10 +99,16 @@
 }
 
 @media (max-width: 640px) {
-  .hero { padding: 7rem 0 3.5rem; }
-  .title { font-size: 1.75rem; }
+  .hero {
+    padding: 7rem 0 3.5rem;
+  }
+  .title {
+    font-size: 1.75rem;
+  }
 }
 
 @media (max-width: 480px) {
-  .hero { padding: 4rem 0 4rem; }  
+  .hero {
+    padding: 4rem 0 4rem;
+  }
 }

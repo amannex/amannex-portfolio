@@ -1,15 +1,15 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from "react";
 
-const HEADING_LEVELS = ['h2', 'h3'];
-const ROOT_MARGIN = '-80px 0px -60% 0px';
+const HEADING_LEVELS = ["h2", "h3"];
+const ROOT_MARGIN = "-80px 0px -60% 0px";
 
 function toSlugId(text: string, index: number) {
-  const stripped = text.replace(/<[^>]+>/g, '').trim();
+  const stripped = text.replace(/<[^>]+>/g, "").trim();
   const slug = stripped
     .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
   return slug || `heading-${index}`;
 }
@@ -20,7 +20,7 @@ export function injectHeadingIds(html: string, headings: any[]) {
 
   return html.replace(
     /<(h[23])(\s[^>]*)?>([^<]*(?:<(?!\/h[23]>)[^<]*)*)<\/h[23]>/gi,
-    (match, tag, attrs = '', innerText) => {
+    (match, tag, attrs = "", innerText) => {
       if (/id\s*=/i.test(attrs)) return match;
       const heading = headings[headingIndex++];
       if (!heading) return match;
@@ -29,22 +29,35 @@ export function injectHeadingIds(html: string, headings: any[]) {
   );
 }
 
-export function useTableOfContents({ htmlContent, containerRef, levels = HEADING_LEVELS, ignoreSelector }: { htmlContent?: string, containerRef?: React.RefObject<HTMLElement | null>, levels?: string[], ignoreSelector?: string } = {}) {
-  const [activeId, setActiveId] = useState('');
+export function useTableOfContents({
+  htmlContent,
+  containerRef,
+  levels = HEADING_LEVELS,
+  ignoreSelector,
+}: {
+  htmlContent?: string;
+  containerRef?: React.RefObject<HTMLElement | null>;
+  levels?: string[];
+  ignoreSelector?: string;
+} = {}) {
+  const [activeId, setActiveId] = useState("");
   const [domHeadings, setDomHeadings] = useState<any[]>([]);
 
   const parsedHeadings = useMemo(() => {
     if (containerRef || !htmlContent) return [];
-    const selector = levels.join('|');
-    const regex = new RegExp(`<(${selector})(?:\\s[^>]*)?>([\\s\\S]*?)<\\/\\1>`, 'gi');
+    const selector = levels.join("|");
+    const regex = new RegExp(
+      `<(${selector})(?:\\s[^>]*)?>([\\s\\S]*?)<\\/\\1>`,
+      "gi",
+    );
     const items = [];
     let match;
     let index = 0;
 
     while ((match = regex.exec(htmlContent)) !== null) {
-      const level = parseInt(match[1].replace('h', ''), 10);
+      const level = parseInt(match[1].replace("h", ""), 10);
       const rawText = match[2];
-      const text = rawText.replace(/<[^>]+>/g, '').trim();
+      const text = rawText.replace(/<[^>]+>/g, "").trim();
       const id = toSlugId(text, index);
       items.push({ id, text, level });
       index++;
@@ -54,14 +67,14 @@ export function useTableOfContents({ htmlContent, containerRef, levels = HEADING
 
   useEffect(() => {
     if (!containerRef?.current) return;
-    const selector = levels.join(', ');
+    const selector = levels.join(", ");
     let elements = Array.from(containerRef.current.querySelectorAll(selector));
     if (ignoreSelector) {
-      elements = elements.filter(el => !el.closest(ignoreSelector));
+      elements = elements.filter((el) => !el.closest(ignoreSelector));
     }
     const items = elements.map((el, index) => {
-      const text = el.textContent?.trim() || '';
-      const level = parseInt(el.tagName.replace('H', ''), 10);
+      const text = el.textContent?.trim() || "";
+      const level = parseInt(el.tagName.replace("H", ""), 10);
       if (!el.id) {
         el.id = toSlugId(text, index);
       }
@@ -81,11 +94,11 @@ export function useTableOfContents({ htmlContent, containerRef, levels = HEADING
         if (visible.length === 0) return;
 
         const topmost = visible.reduce((prev, cur) =>
-          prev.boundingClientRect.top < cur.boundingClientRect.top ? prev : cur
+          prev.boundingClientRect.top < cur.boundingClientRect.top ? prev : cur,
         );
         setActiveId(topmost.target.id);
       },
-      { rootMargin: ROOT_MARGIN, threshold: 0 }
+      { rootMargin: ROOT_MARGIN, threshold: 0 },
     );
 
     headings.forEach(({ id }) => {
@@ -100,7 +113,7 @@ export function useTableOfContents({ htmlContent, containerRef, levels = HEADING
     const el = document.getElementById(id);
     if (!el) return;
     const top = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
+    window.scrollTo({ top, behavior: "smooth" });
   }
 
   return { headings, activeId, scrollToHeading };

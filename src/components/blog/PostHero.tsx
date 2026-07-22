@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import styles from './PostHero.module.css';
+import { Link } from "react-router-dom";
+import styles from "./PostHero.module.css";
 
 interface PostHeroProps {
   post: {
@@ -20,7 +20,11 @@ export default function PostHero({ post, readingTime }: PostHeroProps) {
   return (
     <section
       className={styles.hero}
-      style={!hasFeaturedImage ? { background: post.gradient || 'var(--bg-secondary)' } : undefined}
+      style={
+        !hasFeaturedImage
+          ? { background: post.gradient || "var(--bg-secondary)" }
+          : undefined
+      }
       aria-label="Article header"
     >
       {hasFeaturedImage && (
@@ -36,7 +40,15 @@ export default function PostHero({ post, readingTime }: PostHeroProps) {
         </div>
       )}
 
-      <div className="container" style={{ maxWidth: '1350px', width: '100%', margin: '0 auto', padding: '0 2rem' }}>
+      <div
+        className="container"
+        style={{
+          maxWidth: "1350px",
+          width: "100%",
+          margin: "0 auto",
+          padding: "0 2rem",
+        }}
+      >
         <div className={styles.inner}>
           <Link to="/blogs" className={styles.back}>
             <i className="fas fa-arrow-left" aria-hidden="true"></i>
@@ -55,14 +67,18 @@ export default function PostHero({ post, readingTime }: PostHeroProps) {
               {post.author}
             </span>
 
-            <span className={styles.dot} aria-hidden="true">•</span>
+            <span className={styles.dot} aria-hidden="true">
+              •
+            </span>
 
             <span className={styles.metaItem}>
               <i className="far fa-calendar" aria-hidden="true"></i>
               <time dateTime={post.date}>{post.date}</time>
             </span>
 
-            <span className={styles.dot} aria-hidden="true">•</span>
+            <span className={styles.dot} aria-hidden="true">
+              •
+            </span>
 
             <span className={styles.metaItem}>
               <i className="far fa-clock" aria-hidden="true"></i>

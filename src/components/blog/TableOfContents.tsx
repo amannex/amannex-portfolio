@@ -1,4 +1,4 @@
-import styles from './TableOfContents.module.css';
+import styles from "./TableOfContents.module.css";
 
 interface TocItem {
   id: string;
@@ -12,7 +12,11 @@ interface TableOfContentsProps {
   onItemClick: (id: string) => void;
 }
 
-export default function TableOfContents({ headings = [], activeId, onItemClick }: TableOfContentsProps) {
+export default function TableOfContents({
+  headings = [],
+  activeId,
+  onItemClick,
+}: TableOfContentsProps) {
   if (!headings.length) return null;
 
   return (
@@ -22,18 +26,18 @@ export default function TableOfContents({ headings = [], activeId, onItemClick }
       <ol className={styles.list}>
         {headings.map(({ id, text, level }) => {
           const isActive = id === activeId;
-          const isH3    = level === 3;
+          const isH3 = level === 3;
 
           return (
             <li
               key={id}
-              className={`${styles.item} ${isH3 ? styles.itemH3 : ''}`}
+              className={`${styles.item} ${isH3 ? styles.itemH3 : ""}`}
             >
               <button
                 type="button"
                 onClick={() => onItemClick(id)}
-                className={`${styles.link} ${isActive ? styles.linkActive : ''}`}
-                aria-current={isActive ? 'location' : undefined}
+                className={`${styles.link} ${isActive ? styles.linkActive : ""}`}
+                aria-current={isActive ? "location" : undefined}
                 aria-label={`Jump to: ${text}`}
               >
                 {text}

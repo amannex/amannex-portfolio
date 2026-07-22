@@ -1,4 +1,4 @@
-import styles from './ReadingProgressBar.module.css';
+import styles from "./ReadingProgressBar.module.css";
 
 export default function ReadingProgressBar({ progress }: { progress: number }) {
   return (

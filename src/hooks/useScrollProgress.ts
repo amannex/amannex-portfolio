@@ -1,6 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
-export function useScrollProgress(containerRef?: React.RefObject<HTMLElement | null>) {
+export function useScrollProgress(
+  containerRef?: React.RefObject<HTMLElement | null>,
+) {
   const [progress, setProgress] = useState(0);
   const rafPending = useRef(false);
 
@@ -30,7 +32,10 @@ export function useScrollProgress(containerRef?: React.RefObject<HTMLElement | n
         return;
       }
 
-      const percentage = Math.min(100, Math.max(0, (scrollTop / scrollable) * 100));
+      const percentage = Math.min(
+        100,
+        Math.max(0, (scrollTop / scrollable) * 100),
+      );
       setProgress(percentage);
     }
 
@@ -41,10 +46,12 @@ export function useScrollProgress(containerRef?: React.RefObject<HTMLElement | n
     }
 
     calculateProgress();
-    target.addEventListener('scroll', handleScroll, { passive: true } as any);
+    target.addEventListener("scroll", handleScroll, { passive: true } as any);
 
     return () => {
-      target.removeEventListener('scroll', handleScroll, { passive: true } as any);
+      target.removeEventListener("scroll", handleScroll, {
+        passive: true,
+      } as any);
       rafPending.current = false;
     };
   }, [containerRef]);
